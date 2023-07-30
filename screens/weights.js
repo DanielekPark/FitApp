@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/style.module";
 import { Button } from "@rneui/themed";
 import Questionaire from "../components/weights/questionaire";
-// import LiftingOptions from "../components/weights/liftingOptions";
+import LiftingOptions from "../components/weights/liftingOptions";
 import exercises from "../components/weights/exercises";
 
 function WeightsScreen() {
@@ -17,15 +17,30 @@ function WeightsScreen() {
     availability: "",
     objective: "",
     edit: "",
-    upper: [],
-    lower: [],
+    upper: exercises.filter((exer) => {
+      if (
+        exer.muscleGroup === "shoulders" ||
+        exer.muscleGroup === "chest" ||
+        exer.muscleGroup === "back"
+      ) {
+        return exer;
+      }
+    }),
+    lower: exercises.filter((exer) => {
+      if (
+        exer.muscleGroup === "thigh" ||
+        exer.muscleGroup === "hamstring" ||
+        exer.muscleGroup === "calf"
+      ) {
+        return exer;
+      }
+    }),
     previewPlan: false,
-    index: "",
   });
 
-  // useEffect(() => {
-  //   console.log(userData.component);
-  // }, [userData]);
+  useEffect(() => {
+    console.log(userData.upper);
+  }, [userData]);
 
   return (
     <View style={[styles.screenWrapper]}>
@@ -36,6 +51,9 @@ function WeightsScreen() {
         )}
 
         {/* ======= Exercise Selection =========*/}
+        {userData.component === "selections" && (
+          <LiftingOptions userData={userData} setUserData={setUserData} />
+        )}
       </View>
     </View>
   );

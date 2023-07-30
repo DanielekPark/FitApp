@@ -8,11 +8,15 @@ const Questionaire = ({ userData, setUserData }) => {
     setUserData({ ...userData, [key]: value });
   };
 
+  const showButtons = () => {
+    setUserData({ ...userData, component: "selections" });
+  };
+
   return (
     <>
       <View style={styles.topImgWrap}>
-        {/* ======= Dumbbell Image =========*/}
         <View>
+          {/* ======= Next button =========*/}
           {userData.exp !== "" &&
             userData.objective !== "" &&
             userData.availability !== "" && (
@@ -26,7 +30,7 @@ const Questionaire = ({ userData, setUserData }) => {
                   marginHorizontal: 50,
                   marginVertical: 10,
                 }}
-                onPress={() => setUserData({...userData, component: 'selections'})}
+                onPress={() => showButtons()}
               />
             )}
         </View>
