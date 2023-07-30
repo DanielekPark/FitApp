@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from "@rneui/themed";
 import Component from "./components/MyComponent";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/home"; 
-// import WeightsScreen from "./screens/weights";
+import WeightsScreen from "./screens/weights";
 // import CardioScreen from "./screens/cardio";
 // import StretchingScreen from "./stretch";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -27,12 +27,12 @@ export default function App() {
         component={HomeScreen}
         options={{ tabBarIcon: () => <Icon name="home" /> }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="Weights"
         component={WeightsScreen}
         options={{ tabBarIcon: () => <Icon name="dumbbell" /> }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Cardio"
         component={CardioScreen}
         options={{ tabBarIcon: () => <Icon name="bike-fast" /> }}
