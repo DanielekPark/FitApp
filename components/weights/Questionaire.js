@@ -1,14 +1,37 @@
 import { View, Image, Text, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/style.module";
-import { ButtonGroup } from "@rneui/themed";
+import { ButtonGroup, Button } from "@rneui/themed";
 
-const Questionaire = ({userData, setUserData}) => {
-    const updateUserData = (key, value) => {
-        setUserData({ ...userData, [key]: value });
-      };
-    return (
-        <View style={[styles.smMarBottom, styles.screenWidth]}>
+const Questionaire = ({ userData, setUserData }) => {
+  const updateUserData = (key, value) => {
+    setUserData({ ...userData, [key]: value });
+  };
+
+  return (
+    <>
+      <View style={styles.topImgWrap}>
+        {/* ======= Dumbbell Image =========*/}
+        <View>
+          {userData.exp !== "" &&
+            userData.objective !== "" &&
+            userData.availability !== "" && (
+              <Button
+                title="Next"
+                titleStyle={{ fontWeight: "700" }}
+                buttonStyle={styles.activeBtn}
+                containerStyle={{
+                  width: 200,
+                  height: 40,
+                  marginHorizontal: 50,
+                  marginVertical: 10,
+                }}
+                onPress={() => setUserData({...userData, component: 'selections'})}
+              />
+            )}
+        </View>
+      </View>
+      <View style={[styles.screenWidth]}>
         <View>
           <View>
             <View>
@@ -17,7 +40,6 @@ const Questionaire = ({userData, setUserData}) => {
                   styles.fontTwenty,
                   styles.centerText,
                   styles.smMarBottom,
-                  styles.smMarTop,
                   styles.aqua,
                 ]}
               >
@@ -64,7 +86,8 @@ const Questionaire = ({userData, setUserData}) => {
                   buttonStyle={[styles.inactiveBtn, styles.aqua]}
                   innerBorderStyle={styles.transparentBtn}
                   buttonContainerStyle={styles.btnWrapper}
-                  textStyle={styles.aqua}                      onPress={(value) => updateUserData("objective", value)}
+                  textStyle={styles.aqua}
+                  onPress={(value) => updateUserData("objective", value)}
                   selectedIndex={userData.objective}
                   vertical
                 />
@@ -104,7 +127,8 @@ const Questionaire = ({userData, setUserData}) => {
           </View>
         </View>
       </View>
-    )
-}
+    </>
+  );
+};
 
-export default Questionaire; 
+export default Questionaire;
