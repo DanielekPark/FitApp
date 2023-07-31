@@ -1,50 +1,59 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Pressable } from "react-native";
 import { ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const ExerciseItem = ({ exer, setUserData, userData }) => {
 
+  //Selects the exercise
   const handlePress = (exer) => {
-    const arry = exer.edit;
-    //Amount of exercises selected targeting the same muscle group
-    // const countSelected = userData[arry].reduce((total, item) => {
-    //   if (item.muscleGroup === exer.muscleGroup) {
-    //     if (item.chosen) {
-    //       total += 1;
-    //     }
-    //   }
-    //   return total;
-    // }, 0);
-    console.log(userData.availability)
+    let arry = '';
+    
+    if(exer.muscleGroup === 'chest' || exer.muscleGroup === 'shoulders' || exer.muscleGroup === 'back'){
+      arry = 'upper'; 
+    }
+    if(exer.muscleGroup === 'thigh' || exer.muscleGroup === 'hamstring' || exer.muscleGroup === 'calf'){
+      arry = 'lower'; 
+    }
 
-    //CHECKS IF EXERCISES THAT TARGETS THE SAME MUSCLES HAS BEEN CHOSEN
-    // if (countSelected < 1) {
-    //   const updatePlan = userData[arry].map((item) => {
-    //     if (exer.muscleGroup === item.muscleGroup) {
-    //       if (exer.name === item.name) {
-    //         return { ...item, chosen: !item.chosen };
-    //       }
-    //     }
-    //     return item;
-    //   });
-    //   setUserData({ ...userData, [arry]: updatePlan });
-    // }
+    //Number of the same type of exercise targeting the same muscles
+    const checkType = userData[arry].reduce((total, item) => {
+      if (item.muscleGroup === exer.muscleGroup) {
+        if (item.chosen) {
+          total += 1;
+        }
+      }
+      return total;
+    }, 0);
 
-    // if (countSelected >= 1) {
-    //   const removePrev = userData[arry].map((item) => {
-    //     if (exer.muscleGroup === item.muscleGroup) {
-    //       if (exer.name !== item.name) {
-    //         return { ...item, chosen: false };
-    //       }
-    //       if (exer.name === item.name) {
-    //         return { ...item, chosen: true };
-    //       }
-    //     }
-    //     return item;
-    //   });
-    //   setUserData({ ...userData, [arry]: removePrev });
-    // }
+    //Selects 1 exercise from a muscle group
+    if (checkType < 1) {
+      const updatePlan = userData[arry].map((item) => {
+        if (exer.muscleGroup === item.muscleGroup) {
+          if (exer.name === item.name) {
+            return { ...item, chosen: !item.chosen };
+          }
+        }
+        return item;
+      });
+      setUserData({ ...userData, [arry]: updatePlan });
+    }
+
+    //Removes previous exercise & selects an exercise targeting the same muscle group
+    if (checkType >= 1) {
+      const removePrev = userData[arry].map((item) => {
+        if (exer.muscleGroup === item.muscleGroup) {
+          if (exer.name !== item.name) {
+            return { ...item, chosen: false };
+          }
+          if (exer.name === item.name) {
+            return { ...item, chosen: true };
+          }
+        }
+        return item;
+      });
+      setUserData({ ...userData, [arry]: removePrev });
+    }
   };
 
   return (

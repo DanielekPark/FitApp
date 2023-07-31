@@ -17,12 +17,12 @@ const TabBtns = ({ userData, index, setIndex }) => {
         variant="primary"
       >
         <Tab.Item
-          title="Upper"
+          title="Day 1"
           titleStyle={{ fontSize: 12 }}
           icon={{ name: "timer", type: "ionicon", color: "white" }}
         />
         <Tab.Item
-          title="Lower"
+          title="Day 2"
           titleStyle={{ fontSize: 12 }}
           icon={{ name: "heart", type: "ionicon", color: "white" }}
         />

@@ -14,7 +14,7 @@ function WeightsScreen() {
     exercises,
     component: "questionaire",
     exp: "",
-    availability: "",
+    availability: "", //based on index
     objective: "",
     edit: "",
     upper: exercises.filter((exer) => {

@@ -5,17 +5,16 @@ import { TabView } from "@rneui/base";
 import ExerciseItem from "./exerciseItem";
 
 const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
-  // SHOWS EXERCISES BASED ON AVAILABILITY; USER CHOOSES EXERCISES
+  // 2 day per week availability
   if (userData.availability === 0) {
     return (
       <TabView
-        containerStyle={styles.redBrdr}
         value={index}
         onChange={setIndex}
         animationType="spring"
       >
+        {/* UPPER BODY EXERCISES*/}
         <TabView.Item style={{ width: "100%" }}>
-          {/* UPPER BODY EXERCISES*/}
           <ScrollView>
             {userData.upper.map((exer) => {
               return (
@@ -29,9 +28,9 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
             })}
           </ScrollView>
         </TabView.Item>
+        {/* LOWER BODY EXERCISES */}
         <TabView.Item style={{ width: "100%" }}>
-          {/* LOWER BODY EXERCISES */}
-          {/* <ScrollView>
+          <ScrollView>
           {userData.lower.map((exer) => {
               return (
                 <ExerciseItem 
@@ -41,7 +40,7 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
                   setUserData={setUserData} />
               )
             })}
-          </ScrollView> */}
+          </ScrollView>
         </TabView.Item>
         {/* DISPLAY WORKOUT PLAN BELOW */}
       </TabView>
