@@ -8,15 +8,11 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
   // 2 day per week availability
   if (userData.availability === 0) {
     return (
-      <TabView
-        value={index}
-        onChange={setIndex}
-        animationType="spring"
-      >
+      <View>
         {/* UPPER BODY EXERCISES*/}
-        <TabView.Item style={{ width: "100%" }}>
-          <ScrollView>
-            {userData.upper.map((exer) => {
+        <ScrollView>
+          {index === 0 &&
+            userData.upper.map((exer) => {
               return (
                 <ExerciseItem
                   key={`${exer.name}`}
@@ -26,24 +22,22 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
                 />
               );
             })}
-          </ScrollView>
-        </TabView.Item>
-        {/* LOWER BODY EXERCISES */}
-        <TabView.Item style={{ width: "100%" }}>
-          <ScrollView>
-          {userData.lower.map((exer) => {
+          {/* LOWER BODY EXERCISES */}
+          {index === 1 &&
+            userData.lower.map((exer) => {
               return (
-                <ExerciseItem 
-                  key={`${exer.name}`} 
-                  exer={exer} 
-                  userData={userData} 
-                  setUserData={setUserData} />
-              )
+                <ExerciseItem
+                  key={`${exer.name}`}
+                  exer={exer}
+                  userData={userData}
+                  setUserData={setUserData}
+                />
+              );
             })}
-          </ScrollView>
-        </TabView.Item>
+        </ScrollView>
         {/* DISPLAY WORKOUT PLAN BELOW */}
-      </TabView>
+        <View></View>
+      </View>
     );
   }
 

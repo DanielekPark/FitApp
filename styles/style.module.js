@@ -115,11 +115,15 @@ const styles = StyleSheet.create({
   Weights Screen 
   ======================= */
   listItem : {
-    width: '95%'
+    width: '90%'
   },
   mxAuto: {
     marginLeft: "auto",
     marginRight: "auto",
+  }, 
+  selectedItem: {
+    outline: 'white',
+    backgroundColor: "#33cccc", 
   }
 });
 

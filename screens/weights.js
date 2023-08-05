@@ -10,8 +10,8 @@ function WeightsScreen() {
   const [userData, setUserData] = useState({
     levels: ["Beginner", "Intermediate", "Returning user"],
     goals: ["Gain muscle", "Get stronger"],
-    days: [2, 3, 4],
-    exercises,
+    days: [2, 3, 4], 
+    exercises, 
     component: "questionaire",
     exp: "",
     availability: "", //based on index
@@ -21,7 +21,9 @@ function WeightsScreen() {
       if (
         exer.muscleGroup === "shoulders" ||
         exer.muscleGroup === "chest" ||
-        exer.muscleGroup === "back"
+        exer.muscleGroup === "back" ||
+        exer.muscleGroup === "biceps" ||
+        exer.muscleGroup === "triceps" 
       ) {
         return exer;
       }
@@ -38,9 +40,9 @@ function WeightsScreen() {
     previewPlan: false,
   });
 
-  useEffect(() => {
-    console.log(userData.upper);
-  }, [userData]);
+  // useEffect(() => {
+  //   console.log(userData.upper);
+  // }, [userData]);
 
   return (
     <View style={[styles.screenWrapper]}>
