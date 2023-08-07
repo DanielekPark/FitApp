@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable } from "react-native";
+import { View } from "react-native";
 import { ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
@@ -66,33 +66,29 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
 
   return (
     <ListItem
-      onPress={() => handlePress(exer)}
+      // onPress={() => handlePress(exer)}
       containerStyle={[styles.listItem, { marginBottom: 2 }, styles.mxAuto]}
       bottomDivider
     >
       {/* hide checkbox to add weight and reps*/}
-      <ListItem.CheckBox
+      {/* <ListItem.CheckBox
         iconType="material-community"
         checkedIcon="checkbox-marked"
         uncheckedIcon="checkbox-blank-outline"
         checked={exer.chosen}
         onPress={() => handlePress(exer)}
-      />
+      /> */}
       <Avatar
         size="large"
         source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
       />
       <ListItem.Content>
-        <ListItem.Title>
-          {exer.name}
-        </ListItem.Title>
+        <ListItem.Title>{exer.name}</ListItem.Title>
         <ListItem.Subtitle>
           Primary muscle group: {exer.muscleGroup}
         </ListItem.Subtitle>
-        {/* Sets */}
-        <ListItem.Input></ListItem.Input>
-        {/* Reps */}
-        <ListItem.Input></ListItem.Input>
+        {/* Show when 6 diff exercises are selected */}
+          <ListItem.Input style={{flexDirection: 'row', textAlign: 'center' }} placeholder="1 Rep max"></ListItem.Input>        
       </ListItem.Content>
     </ListItem>
   );

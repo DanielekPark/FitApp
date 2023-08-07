@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
 import styles from "../../styles/style.module";
-import { Button } from "@rneui/base";
+import { Button, FAB } from "@rneui/base";
 import TabBtns from "./tabBtns";
 import ExerciseSelections from "./exerciseSelections";
 
-const LiftingOptions = ({ userData, setUserData}) => {
+const LiftingOptions = ({ userData, setUserData }) => {
   const [index, setIndex] = useState(0);
 
   return (
@@ -25,46 +25,56 @@ const LiftingOptions = ({ userData, setUserData}) => {
           </Text>
         </View>
       </View>
-      <View style={[styles.smMarBottom, {flexDirection: 'row'}]}>
+      <View
+        style={[
+          styles.smMarBottom,
+          { flexDirection: "row", justifyContent: "space-evenly" },
+        ]}
+      >
         <Button
-          title="Go back"
-          type="outline"
-          raised
-          titleStyle={styles.aqua}
-          containerStyle={styles.btnTitleContain}
-          onPress={() =>
-            setUserData({
-              ...userData,
-              component: 'questionaire'
-            })
-          }
+          title="Go Back"
+          titleStyle={{ fontWeight: "700" }}
+          buttonStyle={styles.activeBtn}
+          containerStyle={{
+            width: 150,
+            height: 40,
+            marginVertical: 10,
+          }}
         />
+        {/* Hide button if there are less than 6 differnt exercises selected */}
         <Button
-          title="Next"
-          type="outline"
-          raised
-          titleStyle={styles.aqua}
-          containerStyle={styles.btnTitleContain}
+          title="Add sets & reps"
+          titleStyle={{ fontWeight: "700" }}
+          buttonStyle={styles.activeBtn}
+          containerStyle={{
+            width: 150,
+            height: 40,
+            marginVertical: 10,
+          }}
         />
       </View>
       <View style={styles.smMarTop}>
         <View>
-        {/* ======= Exercises tab selection ======== */}
-          <TabBtns 
-            userData={userData}
-            index={index} 
-            setIndex={setIndex} />
+          {/* ======= Exercises tab selection ======== */}
+          <TabBtns userData={userData} index={index} setIndex={setIndex} />
         </View>
-        <View
-          style={{height: 350}}
-        >
+        <View style={{ height: 350 }}>
           {/* =======Displays exercises ======== */}
-           <ExerciseSelections 
-            userData={userData} 
-            setUserData={setUserData} 
-            index={index} 
-            setIndex={setIndex} /> 
-            
+          <ExerciseSelections
+            userData={userData}
+            setUserData={setUserData}
+            index={index}
+            setIndex={setIndex}
+          />
+          {/* =======Calculator======== */}
+          <FAB
+            containerStyle={{ top: 80 }}
+            title="calculator"
+            visible={false}
+            size="small"
+            placement="right"
+            color="#33cccc"
+          />
         </View>
       </View>
     </View>
