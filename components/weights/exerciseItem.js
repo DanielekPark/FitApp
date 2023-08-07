@@ -70,6 +70,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
       containerStyle={[styles.listItem, { marginBottom: 2 }, styles.mxAuto]}
       bottomDivider
     >
+      {/* hide checkbox to add weight and reps*/}
       <ListItem.CheckBox
         iconType="material-community"
         checkedIcon="checkbox-marked"
@@ -88,6 +89,10 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
         <ListItem.Subtitle>
           Primary muscle group: {exer.muscleGroup}
         </ListItem.Subtitle>
+        {/* Sets */}
+        <ListItem.Input></ListItem.Input>
+        {/* Reps */}
+        <ListItem.Input></ListItem.Input>
       </ListItem.Content>
     </ListItem>
   );

@@ -5,6 +5,7 @@ import { Button } from "@rneui/themed";
 import Questionaire from "../components/weights/questionaire";
 import LiftingOptions from "../components/weights/liftingOptions";
 import exercises from "../components/weights/exercises";
+import Plan from "../components/weights/plan";
 
 function WeightsScreen() {
   const [userData, setUserData] = useState({
@@ -12,7 +13,7 @@ function WeightsScreen() {
     goals: ["Gain muscle", "Get stronger"],
     days: [2, 3, 4], 
     exercises, 
-    component: "questionaire",
+    component: "plan",
     exp: "",
     availability: "", //based on index
     objective: "",
@@ -56,6 +57,10 @@ function WeightsScreen() {
         {userData.component === "selections" && (
           <LiftingOptions userData={userData} setUserData={setUserData} />
         )}
+        {/* ======= Preview Exercise Plan ========= 
+        {userData.component === "plan" && (
+          <Plan />
+        )}*/}
       </View>
     </View>
   );

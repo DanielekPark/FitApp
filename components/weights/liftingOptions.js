@@ -25,7 +25,7 @@ const LiftingOptions = ({ userData, setUserData}) => {
           </Text>
         </View>
       </View>
-      <View style={styles.smMarBottom}>
+      <View style={[styles.smMarBottom, {flexDirection: 'row'}]}>
         <Button
           title="Go back"
           type="outline"
@@ -38,6 +38,13 @@ const LiftingOptions = ({ userData, setUserData}) => {
               component: 'questionaire'
             })
           }
+        />
+        <Button
+          title="Next"
+          type="outline"
+          raised
+          titleStyle={styles.aqua}
+          containerStyle={styles.btnTitleContain}
         />
       </View>
       <View style={styles.smMarTop}>
