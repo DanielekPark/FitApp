@@ -40,18 +40,23 @@ const LiftingOptions = ({ userData, setUserData }) => {
             height: 40,
             marginVertical: 10,
           }}
+          onPress={() =>
+            setUserData({ ...userData, component: "questionaire" })
+          }
         />
         {/* Hide button if there are less than 6 differnt exercises selected */}
-        <Button
-          title="Add sets & reps"
-          titleStyle={{ fontWeight: "700" }}
-          buttonStyle={styles.activeBtn}
-          containerStyle={{
-            width: 150,
-            height: 40,
-            marginVertical: 10,
-          }}
-        />
+        {userData.availability === 0 && userData.selectedNum >= 6 && (
+          <Button
+            title="Add sets & reps"
+            titleStyle={{ fontWeight: "700" }}
+            buttonStyle={styles.activeBtn}
+            containerStyle={{
+              width: 150,
+              height: 40,
+              marginVertical: 10,
+            }}
+          />
+        )}
       </View>
       <View style={styles.smMarTop}>
         <View>

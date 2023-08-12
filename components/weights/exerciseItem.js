@@ -41,10 +41,10 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
         if (exer.name === item.name) {
           return { ...item, chosen: !item.chosen };
         }
-
         return item;
       });
-      setUserData({ ...userData, [arry]: updatePlan });
+      //checks if 6 different exercises have been selected
+      setUserData({ ...userData, selectedNum: userData.selectedNum + 1, [arry]: updatePlan });
     }
 
     //Removes previous exercise & selects an exercise targeting the same muscle group
@@ -64,20 +64,50 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
     }
   };
 
+  //Add user's weight for exercise
+  const handleChange = (value) => {
+    const weight = Number(value);
+    let arry = "";
+
+    if (
+      exer.muscleGroup === "chest" ||
+      exer.muscleGroup === "shoulders" ||
+      exer.muscleGroup === "back" ||
+      exer.muscleGroup === "biceps" ||
+      exer.muscleGroup === "triceps"
+    ) {
+      arry = "upper";
+    }
+    if (
+      exer.muscleGroup === "thigh" ||
+      exer.muscleGroup === "hamstring" ||
+      exer.muscleGroup === "calf"
+    ) {
+      arry = "lower";
+    }
+    const updateWeight = userData[arry].map((item) => {
+      if(exer.name === item.name) {
+        return {...item, weight: weight}
+      }
+      return item; 
+    }); 
+    setUserData({...userData, [arry]: updateWeight}); 
+  }
+
   return (
     <ListItem
-      // onPress={() => handlePress(exer)}
+      onPress={() => handlePress(exer)}
       containerStyle={[styles.listItem, { marginBottom: 2 }, styles.mxAuto]}
       bottomDivider
     >
       {/* hide checkbox to add weight and reps*/}
-      {/* <ListItem.CheckBox
+      <ListItem.CheckBox
         iconType="material-community"
         checkedIcon="checkbox-marked"
         uncheckedIcon="checkbox-blank-outline"
         checked={exer.chosen}
         onPress={() => handlePress(exer)}
-      /> */}
+      /> 
       <Avatar
         size="large"
         source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
@@ -88,7 +118,14 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
           Primary muscle group: {exer.muscleGroup}
         </ListItem.Subtitle>
         {/* Show when 6 diff exercises are selected */}
-          <ListItem.Input style={{flexDirection: 'row', textAlign: 'center' }} placeholder="1 Rep max"></ListItem.Input>        
+          {/* <ListItem.Input 
+            style={{flexDirection: 'row', textAlign: 'left',  }} 
+            placeholder="1 Rep max"
+            containerStyle={{borderColor: 'red', borderWidth: 1}}
+            maxLength={3}
+            keyboardType="numeric"
+            onChangeText={handleChange}
+            />*/}
       </ListItem.Content>
     </ListItem>
   );

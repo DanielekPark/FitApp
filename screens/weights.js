@@ -17,14 +17,12 @@ function WeightsScreen() {
     exp: "",
     availability: "", //based on index
     objective: "",
-    edit: "",
+    selectedNum: 0, //selected number of different exercises 
     upper: exercises.filter((exer) => {
       if (
         exer.muscleGroup === "shoulders" ||
         exer.muscleGroup === "chest" ||
-        exer.muscleGroup === "back" ||
-        exer.muscleGroup === "biceps" ||
-        exer.muscleGroup === "triceps" 
+        exer.muscleGroup === "back"
       ) {
         return exer;
       }
@@ -42,7 +40,7 @@ function WeightsScreen() {
   });
 
   // useEffect(() => {
-  //   console.log(userData.upper);
+  //   console.log(userData.selectedNum);
   // }, [userData]);
 
   return (
@@ -57,6 +55,7 @@ function WeightsScreen() {
         {userData.component === "selections" && (
           <LiftingOptions userData={userData} setUserData={setUserData} />
         )}
+
         {/* ======= Preview Exercise Plan ========= 
         {userData.component === "plan" && (
           <Plan />
