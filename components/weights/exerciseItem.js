@@ -4,7 +4,7 @@ import { ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const ExerciseItem = ({ exer, setUserData, userData }) => {
-  //targets array to be updated
+  //returns a string to update userData hook 
   const arrayExer = (exer) => {
     if (
       exer.muscleGroup === "chest" ||
