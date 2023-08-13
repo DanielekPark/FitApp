@@ -45,7 +45,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
           }
         />
         {/* Hide button if there are less than 6 differnt exercises selected */}
-        {userData.availability === 0 && userData.selectedNum >= 6 && (
+        {userData.availability === 0 && userData.selectedNum === 6 && (
           <Button
             title="Add sets & reps"
             titleStyle={{ fontWeight: "700" }}
