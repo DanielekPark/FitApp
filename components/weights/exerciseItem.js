@@ -4,10 +4,8 @@ import { ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const ExerciseItem = ({ exer, setUserData, userData }) => {
-  //Selects the exercise
-  const handlePress = (exer) => {
-    let arry = "";
-
+  //targets array to be updated
+  const arrayExer = (exer) => {
     if (
       exer.muscleGroup === "chest" ||
       exer.muscleGroup === "shoulders" ||
@@ -15,15 +13,20 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
       exer.muscleGroup === "biceps" ||
       exer.muscleGroup === "triceps"
     ) {
-      arry = "upper";
+      return "upper";
     }
     if (
       exer.muscleGroup === "thigh" ||
       exer.muscleGroup === "hamstring" ||
       exer.muscleGroup === "calf"
     ) {
-      arry = "lower";
+      return "lower";
     }
+  }
+
+  //Selects the exercise
+  const handlePress = (exer) => {
+    let arry = arrayExer(exer);
 
     //Number of the same type of exercise targeting the same muscles
     const checkType = userData[arry].reduce((total, item) => {
@@ -67,24 +70,8 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
   //Add user's weight for exercise
   const handleChange = (value) => {
     const weight = Number(value);
-    let arry = "";
+    let arry = arrayExer(exer);
 
-    if (
-      exer.muscleGroup === "chest" ||
-      exer.muscleGroup === "shoulders" ||
-      exer.muscleGroup === "back" ||
-      exer.muscleGroup === "biceps" ||
-      exer.muscleGroup === "triceps"
-    ) {
-      arry = "upper";
-    }
-    if (
-      exer.muscleGroup === "thigh" ||
-      exer.muscleGroup === "hamstring" ||
-      exer.muscleGroup === "calf"
-    ) {
-      arry = "lower";
-    }
     const updateWeight = userData[arry].map((item) => {
       if(exer.name === item.name) {
         return {...item, weight: weight}
