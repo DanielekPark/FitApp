@@ -2,7 +2,7 @@ import exercises from "../components/weights/exercises";
 //Counts the number of exercises selected
 
 const listCopy = exercises.map((exerc) => {
-  if (exerc.name === "Leg lifts") {
+  if (exerc.name === 'Leg press') {
     return { ...exerc, chosen: true };
   }
   return exerc;
