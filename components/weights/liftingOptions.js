@@ -8,6 +8,18 @@ import ExerciseSelections from "./exerciseSelections";
 const LiftingOptions = ({ userData, setUserData }) => {
   const [index, setIndex] = useState(0);
 
+  const goBack = () => {
+    if(userData.availability === 0 && userData.selectedNum === 6){
+      setUserData({...userData, hideExercises: false}); 
+      return; 
+    }
+
+    if(userData.component === 'selections') {
+      setUserData({ ...userData, component: "questionaire" }); 
+      return; 
+    }
+  }
+
   return (
     <View>
       <View>
@@ -40,9 +52,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
             height: 40,
             marginVertical: 10,
           }}
-          onPress={() =>
-            setUserData({ ...userData, component: "questionaire" })
-          }
+          onPress={goBack}
         />
         {/* Hide button if there are less than 6 differnt exercises selected */}
         {userData.availability === 0 && userData.selectedNum === 6 && (
@@ -55,6 +65,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
               height: 40,
               marginVertical: 10,
             }}
+            onPress={() => setUserData({...userData, hideExercises: true })}
           />
         )}
       </View>

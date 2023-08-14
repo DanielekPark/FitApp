@@ -4,7 +4,7 @@ import { ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const ExerciseItem = ({ exer, setUserData, userData }) => {
-  //returns a string to update userData hook 
+  //returns a string to update userData hook
   const arrayExer = (exer) => {
     if (
       exer.muscleGroup === "chest" ||
@@ -22,7 +22,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
     ) {
       return "lower";
     }
-  }
+  };
 
   //Selects the exercise
   const handlePress = (exer) => {
@@ -47,7 +47,11 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
         return item;
       });
       //checks if 6 different exercises have been selected
-      setUserData({ ...userData, selectedNum: userData.selectedNum + 1, [arry]: updatePlan });
+      setUserData({
+        ...userData,
+        selectedNum: userData.selectedNum + 1,
+        [arry]: updatePlan,
+      });
     }
 
     //Removes previous exercise & selects an exercise targeting the same muscle group
@@ -67,34 +71,39 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
     }
   };
 
-  //Add user's weight for exercise
+  //Add user's weight for an exercise
   const handleChange = (value) => {
     const weight = Number(value);
     let arry = arrayExer(exer);
 
     const updateWeight = userData[arry].map((item) => {
-      if(exer.name === item.name) {
-        return {...item, weight: weight}
+      if (exer.name === item.name) {
+        return { ...item, weight: weight };
       }
-      return item; 
-    }); 
-    setUserData({...userData, [arry]: updateWeight}); 
-  }
+      return item;
+    });
+    setUserData({ ...userData, [arry]: updateWeight });
+  };
 
   return (
     <ListItem
       onPress={() => handlePress(exer)}
-      containerStyle={[styles.listItem, { marginBottom: 2 }, styles.mxAuto]}
+      containerStyle={
+        userData.hideExercises ? 
+        [styles.listItem, { marginBottom: 2 }, styles.mxAuto, exer.chosen ? {} : { display: "none" }]
+          : [styles.listItem, { marginBottom: 2 }, styles.mxAuto]
+      }
       bottomDivider
     >
       {/* hide checkbox to add weight and reps*/}
+      {!userData.hideExercises &&
       <ListItem.CheckBox
         iconType="material-community"
         checkedIcon="checkbox-marked"
         uncheckedIcon="checkbox-blank-outline"
         checked={exer.chosen}
         onPress={() => handlePress(exer)}
-      /> 
+      />}
       <Avatar
         size="large"
         source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
@@ -105,14 +114,15 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
           Primary muscle group: {exer.muscleGroup}
         </ListItem.Subtitle>
         {/* Show when 6 diff exercises are selected */}
-          {/* <ListItem.Input 
+        {userData.hideExercises &&
+        <ListItem.Input 
             style={{flexDirection: 'row', textAlign: 'left',  }} 
             placeholder="1 Rep max"
             containerStyle={{borderColor: 'red', borderWidth: 1}}
             maxLength={3}
             keyboardType="numeric"
             onChangeText={handleChange}
-            />*/}
+            />}
       </ListItem.Content>
     </ListItem>
   );

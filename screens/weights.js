@@ -36,6 +36,7 @@ function WeightsScreen() {
         return exer;
       }
     }),
+    hideExercises: false,
     previewPlan: false,
   });
 
