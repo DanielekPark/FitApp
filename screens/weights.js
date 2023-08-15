@@ -40,10 +40,6 @@ function WeightsScreen() {
     previewPlan: false,
   });
 
-  // useEffect(() => {
-  //   console.log(userData.selectedNum);
-  // }, [userData]);
-
   return (
     <View style={[styles.screenWrapper]}>
       <View>

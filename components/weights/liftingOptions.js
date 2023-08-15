@@ -8,6 +8,7 @@ import ExerciseSelections from "./exerciseSelections";
 const LiftingOptions = ({ userData, setUserData }) => {
   const [index, setIndex] = useState(0);
 
+  //Goes back to previous section of weightlifting
   const goBack = () => {
     if(userData.availability === 0 && userData.selectedNum === 6){
       setUserData({...userData, hideExercises: false}); 
@@ -54,7 +55,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
           }}
           onPress={goBack}
         />
-        {/* Hide button if there are less than 6 differnt exercises selected */}
+        {/* Hide button if there are less than 6 different exercises selected */}
         {userData.availability === 0 && userData.selectedNum === 6 && (
           <Button
             title="Add sets & reps"
