@@ -10,7 +10,6 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
     return (
       <View>
         {/* UPPER BODY EXERCISES*/}
-        <ScrollView>
           {index === 0 &&
             userData.upper.map((exer) => {
               return (
@@ -34,7 +33,6 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
                 />
               );
             })}
-        </ScrollView>
         {/* DISPLAY WORKOUT PLAN BELOW */}
         <View></View>
       </View>
