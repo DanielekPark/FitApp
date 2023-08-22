@@ -13,11 +13,12 @@ function WeightsScreen() {
     goals: ["Gain muscle", "Get stronger"],
     days: [2, 3, 4],
     exercises,
-    component: "questionaire",
+    component: "plan",
     exp: "",
     availability: "", //based on index
     objective: "",
     selectedNum: 0, //selected number of different exercises
+    numOfWeights: 0, //number of different weights for exercises
     upper: exercises.filter((exer) => {
       if (
         exer.muscleGroup === "shoulders" ||
@@ -40,25 +41,27 @@ function WeightsScreen() {
     previewPlan: false,
   });
 
+  // useEffect(() => {
+  //   console.log(userData.lower.filter((item) => item.chosen === true))
+  // }, [userData])
+
   return (
-      <View style={[styles.screenWrapper]}>
-        <ScrollView>
-          {/* ======= Weight lifting questionaire =========*/}
-          {userData.component === "questionaire" && (
-            <Questionaire userData={userData} setUserData={setUserData} />
-          )}
+    <View style={[styles.screenWrapper]}>
+      <ScrollView>
+        {/* ======= Weight lifting questionaire =========*/}
+        {userData.component === "questionaire" && (
+          <Questionaire userData={userData} setUserData={setUserData} />
+        )}
 
-          {/* ======= Exercise Selection =========*/}
-          {userData.component === "selections" && (
-            <LiftingOptions userData={userData} setUserData={setUserData} />
-          )}
+        {/* ======= Exercise Selection =========*/}
+        {userData.component === "selections" && (
+          <LiftingOptions userData={userData} setUserData={setUserData} />
+        )}
 
-          {/* ======= Preview Exercise Plan ========= 
-        {userData.component === "plan" && (
-          <Plan />
-        )}*/}
-        </ScrollView>
-      </View>
+        {/* ======= Preview Exercise Plan ========= */}
+        {userData.component === "plan" && <Plan />}
+      </ScrollView>
+    </View>
   );
 }
 

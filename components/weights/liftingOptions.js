@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Alert } from "react-native";
 import styles from "../../styles/style.module";
 import { Button, FAB } from "@rneui/base";
 import TabBtns from "./tabBtns";
@@ -7,7 +7,6 @@ import ExerciseSelections from "./exerciseSelections";
 
 const LiftingOptions = ({ userData, setUserData }) => {
   const [index, setIndex] = useState(0);
-
   //Goes back to previous section of weightlifting
   const goBack = () => {
     if(userData.availability === 0 && userData.selectedNum === 6){
@@ -20,6 +19,43 @@ const LiftingOptions = ({ userData, setUserData }) => {
       return; 
     }
   }
+
+  /* Enables user to add sets & weights & preview workout */ 
+  const nextBtn = () => {
+    //checks weights for selected exercises have been added
+    
+    if(userData.hideExercises){
+      const counter = userData.upper.reduce((total, item) => {
+        if(item.weight > 4){
+          total += 1; 
+        }
+        return total; 
+      }, 0) + userData.lower.reduce((total, item) => {
+        if(item.weight > 4){
+          total += 1; 
+        }
+        return total; 
+      }, 0)
+
+      if (counter === userData.selectedNum) {
+        setUserData({...userData, component: 'plan'}); 
+        return;
+      }
+
+      if(counter !== userData.selectedNum){
+        Alert.alert('Please add weights for all of your exercises'); 
+        return; 
+      }
+    }
+
+    if(userData.availability === 0 && userData.selectedNum === 6){
+      setUserData({...userData, hideExercises: true }); 
+      return; 
+    }
+  }
+
+  //need feature for adding weight to exercises 
+  //create modal for calculator
 
   return (
     <View>
@@ -58,7 +94,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
         {/* Hide button if there are less than 6 different exercises selected */}
         {userData.availability === 0 && userData.selectedNum === 6 && (
           <Button
-            title="Add sets & reps"
+            title="Next"       
             titleStyle={{ fontWeight: "700" }}
             buttonStyle={styles.activeBtn}
             containerStyle={{
@@ -66,7 +102,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
               height: 40,
               marginVertical: 10,
             }}
-            onPress={() => setUserData({...userData, hideExercises: true })}
+            onPress={nextBtn}
           />
         )}
       </View>
@@ -75,7 +111,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
           {/* ======= Exercises tab selection ======== */}
           <TabBtns userData={userData} index={index} setIndex={setIndex} />
         </View>
-        <View style={{ height: 350 }}>
+        <View>
           {/* =======Displays exercises ======== */}
           <ExerciseSelections
             userData={userData}
@@ -87,7 +123,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
           <FAB
             containerStyle={{ top: 80 }}
             title="calculator"
-            visible={false}
+            visible={userData.hideExercises ? true : false}
             size="small"
             placement="right"
             color="#33cccc"

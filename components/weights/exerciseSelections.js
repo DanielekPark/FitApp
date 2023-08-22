@@ -39,6 +39,7 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
     );
   }
 
+  // 3 day per week availability
   if (userData.availability === 1) {
     return (
       <TabView value={index} onChange={setIndex} animationType="spring">
@@ -56,6 +57,7 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
     );
   }
 
+  // 4 day per week availability
   if (userData.availability === 2) {
     return (
       <TabView value={index} onChange={setIndex} animationType="spring">
