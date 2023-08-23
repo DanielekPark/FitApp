@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/style.module";
 import { View, ScrollView, Text } from "react-native";
-import { TabView } from "@rneui/base";
+import { TabView, FAB } from "@rneui/base";
 import ExerciseItem from "./exerciseItem";
 
 const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
@@ -33,8 +33,9 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
                 />
               );
             })}
-        {/* DISPLAY WORKOUT PLAN BELOW */}
-        <View></View>
+        <View>
+
+        </View>
       </View>
     );
   }
