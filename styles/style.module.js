@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
   },
   inputContainer: {
-    width: 300,
     marginLeft: "auto",
     marginRight: "auto",
   },
@@ -103,9 +102,6 @@ const styles = StyleSheet.create({
   calcBtn: {
     backgroundColor: "#33cccc",
     borderRadius: 5,
-    width: 300,
-    marginLeft: "auto",
-    marginRight: "auto",
   },
   redBrdr: {
     borderColor: 'red',

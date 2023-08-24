@@ -1,13 +1,6 @@
-import {
-  View,
-  Image,
-  Text,
-  ScrollView,
-  Dimensions,
-  Linking,
-} from "react-native";
+import { View, Image, Text, ScrollView } from "react-native";
 import React from "react";
-import { Button, Icon, ListItem } from "@rneui/themed";
+import { Button, Icon, ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const Plan = () => {
@@ -54,22 +47,24 @@ const Plan = () => {
           /> */}
       </View>
 
-      <View
-        style={[
-          styles.smMarTop,
-          styles.redBrdr,
-          { height: Dimensions.get("window").height / 1.5 },
-        ]}
-      >
-    <ListItem
-      containerStyle={[styles.listItem, { marginBottom: 2 }, styles.mxAuto]}
-      bottaomDivider
-    >
-    <Button title="" />
-    </ListItem>
-        {/* <ScrollView>
-            <PlanCard />
-        </ScrollView> */}
+      <View style={[styles.smMarTop, styles.redBrdr]}>
+        <View style={{borderColor: 'blue', borderWidth: 1, marginTop: 5}}>
+        <ListItem bottomDivider>
+          <Avatar
+            size="large"
+            source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
+          />
+          <Avatar
+            size="large"
+            source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
+          />
+          <ListItem.Content>
+            <ListItem.Title>Exercise</ListItem.Title>
+            <ListItem.Subtitle>3 sets 12 reps</ListItem.Subtitle>
+            <ListItem.Subtitle>1 min rest</ListItem.Subtitle>
+          </ListItem.Content>
+        </ListItem>
+        </View>
       </View>
     </View>
   );

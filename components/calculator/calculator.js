@@ -27,13 +27,8 @@ function Calculator() {
   };
 
   return (
-    <View
-      style={[
-        styles.calcWrapper,
-        { height: Dimensions.get("window").height / 2 },
-      ]}
-    >
-      <View>
+    <View style={{width: '100%'}}>
+      <View style={[{width: '95%'}, styles.mxAuto]}>
         <View>
           <Text
             style={[
@@ -73,7 +68,7 @@ function Calculator() {
             buttonStyle={styles.calcBtn}
             title="Calculate"
             onPress={calcStrength}
-            containerStyle={{ marginTop: 100 }}
+            containerStyle={{ marginTop: 100}}
           />
         </View>
       </View>
