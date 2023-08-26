@@ -13,7 +13,7 @@ function WeightsScreen() {
     goals: ["Gain muscle", "Get stronger"],
     days: [2, 3, 4],
     exercises,
-    component: "questionaire",
+    component: "plan",
     exp: "",
     availability: "", //based on index
     objective: "",

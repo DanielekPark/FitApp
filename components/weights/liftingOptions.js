@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Alert } from "react-native";
 import styles from "../../styles/style.module";
-import { Button, Dialog } from "@rneui/base";
+import { Button } from "@rneui/base";
 import TabBtns from "./tabBtns";
 import ExerciseSelections from "./exerciseSelections";
 import Modal from "./modal";
