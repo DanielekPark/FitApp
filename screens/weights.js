@@ -59,7 +59,7 @@ function WeightsScreen() {
         )}
 
         {/* ======= Preview Exercise Plan ========= */}
-        {userData.component === "plan" && <Plan />}
+        {userData.component === "plan" && <Plan userData={userData} setUserData={setUserData} />}
       </ScrollView>
     </View>
   );
