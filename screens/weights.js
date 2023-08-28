@@ -21,18 +21,18 @@ function WeightsScreen() {
     numOfWeights: 0, //number of different weights for exercises
     upper: exercises.filter((exer) => {
       if (
-        exer.muscleGroup === "shoulders" ||
-        exer.muscleGroup === "chest" ||
-        exer.muscleGroup === "back"
+        exer.muscleGroup === "Shoulders" ||
+        exer.muscleGroup === "Chest" ||
+        exer.muscleGroup === "Back"
       ) {
         return exer;
       }
     }),
     lower: exercises.filter((exer) => {
       if (
-        exer.muscleGroup === "thigh" ||
-        exer.muscleGroup === "hamstring" ||
-        exer.muscleGroup === "calf"
+        exer.muscleGroup === "Thigh" ||
+        exer.muscleGroup === "Hamstring" ||
+        exer.muscleGroup === "Calf"
       ) {
         return exer;
       }
@@ -42,7 +42,7 @@ function WeightsScreen() {
   });
 
   // useEffect(() => {
-  //   console.log(userData.lower.filter((item) => item.chosen === true))
+  //   console.log(userData.lower)
   // }, [userData])
 
   return (
