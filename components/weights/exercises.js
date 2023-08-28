@@ -5,7 +5,7 @@ const exercises = [
   // QUADRICEPS
   {
     name: "Leg press",
-    muscleGroup: "thigh",
+    muscleGroup: "Thigh",
     chosen: true,
     weight: 100,
     reps: 12, 
@@ -14,14 +14,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "multi",
-    edit: ''
+    startImg: require("../../assets/images/leg-press-start.png"),
+    endImg: require("../../assets/images/leg-press-end.png"),
+    movement: "Multi",
+    edit: '',
+    showImage: false
   },
   {
     name: "Squat",
-    muscleGroup: "thigh",
+    muscleGroup: "Thigh",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -30,14 +31,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "multi",
-    edit: ''
+    startImg: require("../../assets/images/squat-start.png"),
+    endImg: require("../../assets/images/squat-end.png"),
+    movement: "Multi",
+    edit: '',
+    showImage: false
   },
   {
     name: "Seated knee extension",
-    muscleGroup: "thigh",
+    muscleGroup: "Thigh",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -46,15 +48,16 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/hamstring-curl-start.png"),
+    endImg: require("../../assets/images/hamstring-curl-start.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   // HAMSTRING
   {
     name: "Deadlift",
-    muscleGroup: "hamstring",
+    muscleGroup: "Hamstring",
     chosen: true,
     weight: 100,
     reps: 12,
@@ -63,14 +66,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "multi",
-    edit: ''
+    startImg: require("../../assets/images/deadlift-start.png"),
+    endImg: require("../../assets/images/deadlift-end.png"),
+    movement: "Multi",
+    edit: '',
+    showImage: false
   },
   {
     name: "Hamstring curl",
-    muscleGroup: "hamstring",
+    muscleGroup: "Hamstring",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -79,15 +83,16 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/hamstring-curl-start.png"),
+    endImg: require("../../assets/images/hamstring-curl-end.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   // CALVES
   {
     name: "Standing calf raise",
-    muscleGroup: "calf",
+    muscleGroup: "Calf",
     chosen: true,
     weight: 50,
     reps: 12,
@@ -96,14 +101,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/favicon.png"),
+    endImg: require("../../assets/favicon.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   {
     name: "Seated calf raise",
-    muscleGroup: "calf",
+    muscleGroup: "Calf",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -112,15 +118,16 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/bench-press-end.png"),
+    endImg: require("../../assets/images/bench-press-end.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   // CHEST
   {
     name: "Bench press",
-    muscleGroup: "chest",
+    muscleGroup: "Chest",
     chosen: true,
     weight: 100,
     reps: 12,
@@ -129,14 +136,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "multi",
-    edit: ''
+    startImg: require("../../assets/images/bench-press-start.png"),
+    endImg: require("../../assets/images/bench-press-end.png"),
+    movement: "Multi",
+    edit: '',
+    showImage: false
   },
   {
     name: "Dips",
-    muscleGroup: "chest",
+    muscleGroup: "Chest",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -145,14 +153,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "multi",
+    startImg: require("../../assets/images/dips-start.png"),
+    endImg: require("../../assets/images/dips-end.png"),
+    movement: "Multi",
+    showImage: false
   },
   // BACK
   {
     name: "Machine rows",
-    muscleGroup: "back",
+    muscleGroup: "Back",
     chosen: true,
     weight: 100,
     reps: 12,
@@ -161,14 +170,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "multi",
-    edit: ''
+    startImg: require("../../assets/images/row-start.png"),
+    endImg: require("../../assets/images/row-end.png"),
+    movement: "Multi",
+    edit: '',
+    showImage: false
   },
   {
     name: "Pull up machine",
-    muscleGroup: "back",
+    muscleGroup: "Back",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -177,15 +187,16 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "multi",
-    edit: ''
+    startImg: require("../../assets/images/pull-up-start.png"),
+    endImg: require("../../assets/images/pull-up-end.png"),
+    movement: "Multi",
+    edit: '',
+    showImage: false
   },
   //SHOULDERS
   {
     name: "Lateral raise",
-    muscleGroup: "shoulders",
+    muscleGroup: "Shoulders",
     chosen: true,
     weight: 20,
     reps: 12,
@@ -194,14 +205,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/lateral-raise-start.png"),
+    endImg: require("../../assets/images/lateral-raise-end.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   {
     name: "Shrugs",
-    muscleGroup: "shoulders",
+    muscleGroup: "Shoulders",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -210,10 +222,11 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/shoulder-shrug-start.png"),
+    endImg: require("../../assets/images/shoulder-shrug-end.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   //CORE
   {
@@ -227,14 +240,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/favicon.png"),
+    endImg: require("../../assets/favicon.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   {
     name: "Crunches",
-    muscleGroup: "core",
+    muscleGroup: "Core",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -243,14 +257,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/crunches-start.png"),
+    endImg: require("../../assets/images/crunches-end.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   {
     name: "Twists",
-    muscleGroup: "core",
+    muscleGroup: "Core",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -259,15 +274,16 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/twist-start.png"),
+    endImg: require("../../assets/images/twist-end.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   //BICEPS
   {
     name: "Bicep curls",
-    muscleGroup: "biceps",
+    muscleGroup: "Biceps",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -276,14 +292,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
+    startImg: require("../../assets/images/bicep-curl-start.png"),
+    endImg: require("../../assets/images/bicep-curl-end.png"),
     movement: "single",
-    edit: ''
+    edit: '',
+    showImage: false
   },
   {
     name: "Concentration curls",
-    muscleGroup: "biceps",
+    muscleGroup: "Biceps",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -292,15 +309,16 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/concentration-curl-start.png"),
+    endImg: require("../../assets/images/concentration-curl-end.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   //TRICEPS
   {
     name: "Cable pulldown",
-    muscleGroup: "triceps",
+    muscleGroup: "Triceps",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -309,14 +327,15 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/cable-pull-down-start.png"),
+    endImg: require("../../assets/images/cable-pull-down-end.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
   {
     name: "Tricep overhead extension",
-    muscleGroup: "triceps",
+    muscleGroup: "Triceps",
     chosen: false,
     weight: 0,
     reps: 12,
@@ -325,10 +344,11 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: "",
-    endImg: "",
-    movement: "single",
-    edit: ''
+    startImg: require("../../assets/images/tricep-overhead-start.png"),
+    endImg: require("../../assets/images/tricep-overhead-end.png"),
+    movement: "Single",
+    edit: '',
+    showImage: false
   },
 ];
 /* 

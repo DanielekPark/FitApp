@@ -17,6 +17,13 @@ const PlanItem = ({ exer, showDemo, setShowDemo, userData, setUserData, workoutB
 
   //Opens modal & finds the exercise 
   const toggleDemo = () => {
+    const setImage = userData.exercises.map((item) => {
+      if(item.name === exer.name) {
+        return {...item, showImage: true}
+      }
+      return {...item, showImage: false}; 
+    }); 
+    setUserData({...userData, exercises: setImage});
     setShowDemo(true);
   }
 

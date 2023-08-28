@@ -7,18 +7,18 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
   //returns a string to update userData hook
   const arrayExer = (exer) => {
     if (
-      exer.muscleGroup === "chest" ||
-      exer.muscleGroup === "shoulders" ||
-      exer.muscleGroup === "back" ||
-      exer.muscleGroup === "biceps" ||
-      exer.muscleGroup === "triceps"
+      exer.muscleGroup === "Chest" ||
+      exer.muscleGroup === "Shoulders" ||
+      exer.muscleGroup === "Back" ||
+      exer.muscleGroup === "Biceps" ||
+      exer.muscleGroup === "Triceps"
     ) {
       return "upper";
     }
     if (
-      exer.muscleGroup === "thigh" ||
-      exer.muscleGroup === "hamstring" ||
-      exer.muscleGroup === "calf"
+      exer.muscleGroup === "Thigh" ||
+      exer.muscleGroup === "Hamstring" ||
+      exer.muscleGroup === "Calf"
     ) {
       return "lower";
     }

@@ -105,7 +105,7 @@ const Plan = ({ userData, setUserData }) => {
 
           {/* Day 4 */}
 
-          <DemoModal showDemo={showDemo} setShowDemo={setShowDemo} />
+          <DemoModal userData={userData} setUserData={setUserData} showDemo={showDemo} setShowDemo={setShowDemo} />
         </View>
       </View>
     </View>
