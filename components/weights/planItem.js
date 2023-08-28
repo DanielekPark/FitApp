@@ -4,6 +4,8 @@ import { Button, ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const PlanItem = ({ exer, showDemo, setShowDemo, userData, setUserData, workoutBtns, setWorkoutBtns }) => {
+
+  //Changes for exercise based on warm-up or week
   const determineWeight = (exer, workoutBtns) => {
     let percentage; 
     if (workoutBtns === 'warm-up') percentage = 0.5;
@@ -12,6 +14,11 @@ const PlanItem = ({ exer, showDemo, setShowDemo, userData, setUserData, workoutB
     //Estimated weight for user
     return Math.trunc(exer.weight * percentage);
   };
+
+  //Opens modal & finds the exercise 
+  const toggleDemo = () => {
+    setShowDemo(true);
+  }
 
   return (
     <ListItem
@@ -35,6 +42,7 @@ const PlanItem = ({ exer, showDemo, setShowDemo, userData, setUserData, workoutB
         title="Demo"
         titleStyle={{ fontWeight: "700" }}
         buttonStyle={styles.activeBtn}
+        onPress={toggleDemo}
       />
     </ListItem>
   );

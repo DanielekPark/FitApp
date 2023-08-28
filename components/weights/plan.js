@@ -1,6 +1,6 @@
 import { View, Image, Text } from "react-native";
 import React, { useState } from "react";
-import { Button, ButtonGroup } from "@rneui/themed";
+import { Button } from "@rneui/themed";
 import styles from "../../styles/style.module";
 import DemoModal from "./demoModal";
 import PlanItem from "./planItem";
