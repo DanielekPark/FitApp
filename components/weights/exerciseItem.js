@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { ListItem, Avatar, Button, Text } from "@rneui/themed";
+import { ListItem, Avatar, Text } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const ExerciseItem = ({ exer, setUserData, userData }) => {
@@ -101,7 +101,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
       }
       bottomDivider
     >
-      {/* hides checkbox to add weight and reps*/}
+      {/* hides checkbox to add weight & reps*/}
       {!userData.hideExercises && (
         <ListItem.CheckBox
           iconType="material-community"
@@ -113,7 +113,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
       )}
       <Avatar
         size="large"
-        source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
+        source={exer.startImg}
       />
       <ListItem.Content>
         <ListItem.Title>{exer.name}</ListItem.Title>

@@ -30,7 +30,7 @@ const Questionaire = ({ userData, setUserData }) => {
                   marginHorizontal: 50,
                   marginVertical: 10,
                 }}
-                onPress={() => showButtons()}
+                onPress={showButtons}
               />
             )}
         </View>

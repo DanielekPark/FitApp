@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Image, Text } from "react-native";
 import { Button, ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
@@ -34,7 +34,7 @@ const PlanItem = ({ exer, showDemo, setShowDemo, userData, setUserData, workoutB
     >
       <Avatar
         size="large"
-        source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
+        source={exer.startImg}
       />
       <ListItem.Content>
         <ListItem.Title>{exer.name}</ListItem.Title>

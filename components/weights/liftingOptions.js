@@ -12,9 +12,9 @@ const LiftingOptions = ({ userData, setUserData }) => {
 
   //Goes back to previous section of weightlifting
   const goBack = () => {
-    if (userData.availability === 0 && userData.selectedNum === 6) {
+    if(userData.component === 'selections' && userData.hideExercises){
       setUserData({ ...userData, hideExercises: false });
-      return;
+      return; 
     }
 
     if (userData.component === "selections") {
@@ -28,7 +28,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
     //checks weights for selected exercises have been added
 
     if (userData.hideExercises) {
-      const counter =
+      const counter = 
         userData.upper.reduce((total, item) => {
           if (item.weight > 4) {
             total += 1;

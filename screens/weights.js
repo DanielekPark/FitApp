@@ -13,7 +13,7 @@ function WeightsScreen() {
     goals: ["Gain muscle", "Get stronger"],
     days: [2, 3, 4],
     exercises,
-    component: "plan",
+    component: "questionaire",
     exp: "",
     availability: "", //based on index
     objective: "",
@@ -41,9 +41,10 @@ function WeightsScreen() {
     previewPlan: false,
   });
 
-  // useEffect(() => {
-  //   console.log(userData.lower)
-  // }, [userData])
+  useEffect(() => {
+    console.log(userData.component)
+    console.log(userData.hideExercises)
+  }, [userData])
 
   return (
     <View style={[styles.screenWrapper]}>

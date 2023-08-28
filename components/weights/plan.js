@@ -1,6 +1,6 @@
-import { View, Image, Text } from "react-native";
+import { View } from "react-native";
 import React, { useState } from "react";
-import { Button } from "@rneui/themed";
+import { Button, Text} from "@rneui/themed";
 import styles from "../../styles/style.module";
 import DemoModal from "./demoModal";
 import PlanItem from "./planItem";
@@ -33,12 +33,12 @@ const Plan = ({ userData, setUserData }) => {
           titleStyle={{ fontWeight: "700" }}
           buttonStyle={styles.activeBtn}
           containerStyle={styles.btnTitleContain}
-          // onPress={() =>
-          //     setUserData({
-          //       ...userData,
-          //       component: 'questionaire'
-          //     })
-          //   }
+          onPress={() =>
+              setUserData({
+                ...userData,
+                component: 'questionaire'
+              })
+            }
         />
       </View>
       <View style={[{flexDirection: 'row', justifyContent: 'space-between'}, styles.smMarTop]}>
@@ -65,10 +65,8 @@ const Plan = ({ userData, setUserData }) => {
         />
       </View>
       <View style={styles.smMarTop}>
-        {/* button groups for 2 day, 3 day, 4 day */}
-        {/* Warm up */}
         <View style={{ marginTop: 5 }}>
-          <Text>Day 1</Text>
+          <Text h4 style={styles.aqua}>Day 1</Text>
         </View>
         <View style={{ marginTop: 5 }}>
           {userData.lower.map((exer) => {
@@ -86,7 +84,7 @@ const Plan = ({ userData, setUserData }) => {
             );
           })}
           {/* Day 2 */}
-          <Text>Day 2</Text>
+          <Text h4 style={styles.aqua}>Day 2</Text>
           {userData.upper.map((exer) => {
             return (
               <PlanItem

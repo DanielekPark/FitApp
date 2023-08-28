@@ -6,7 +6,7 @@ const exercises = [
   {
     name: "Leg press",
     muscleGroup: "Thigh",
-    chosen: true,
+    chosen: false,
     weight: 100,
     reps: 12, 
     firstSet: 0,
@@ -58,7 +58,7 @@ const exercises = [
   {
     name: "Deadlift",
     muscleGroup: "Hamstring",
-    chosen: true,
+    chosen: false,
     weight: 100,
     reps: 12,
     firstSet: 0,
@@ -93,7 +93,7 @@ const exercises = [
   {
     name: "Standing calf raise",
     muscleGroup: "Calf",
-    chosen: true,
+    chosen: false,
     weight: 50,
     reps: 12,
     firstSet: 0,
@@ -118,8 +118,8 @@ const exercises = [
     thirdSet: 0,
     availability: 0,
     goal: "",
-    startImg: require("../../assets/images/bench-press-end.png"),
-    endImg: require("../../assets/images/bench-press-end.png"),
+    startImg: require("../../assets/favicon.png"),
+    endImg: require("../../assets/favicon.png"),
     movement: "Single",
     edit: '',
     showImage: false
@@ -128,7 +128,7 @@ const exercises = [
   {
     name: "Bench press",
     muscleGroup: "Chest",
-    chosen: true,
+    chosen: false,
     weight: 100,
     reps: 12,
     firstSet: 0,
@@ -162,7 +162,7 @@ const exercises = [
   {
     name: "Machine rows",
     muscleGroup: "Back",
-    chosen: true,
+    chosen: false,
     weight: 100,
     reps: 12,
     firstSet: 0,
@@ -197,7 +197,7 @@ const exercises = [
   {
     name: "Lateral raise",
     muscleGroup: "Shoulders",
-    chosen: true,
+    chosen: false,
     weight: 20,
     reps: 12,
     firstSet: 0,
