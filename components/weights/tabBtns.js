@@ -31,11 +31,12 @@ const TabBtns = ({ userData, index, setIndex }) => {
   }
 
   // 3 DAY AVAILABILITY
-  if (userData.availIndex === 1) {
+  if (userData.availability === 1) {
     return (
       <Tab
         value={index}
         onChange={(e) => setIndex(e)}
+        containerStyle={styles.aquaBg}
         indicatorStyle={{
           backgroundColor: "white",
           height: 3,
@@ -43,17 +44,17 @@ const TabBtns = ({ userData, index, setIndex }) => {
         variant="primary"
       >
         <Tab.Item
-          title="Chest & Triceps"
+          title="Day 1 Back & Biceps"
           titleStyle={{ fontSize: 12 }}
           icon={{ name: "timer", type: "ionicon", color: "white" }}
         />
         <Tab.Item
-          title="Back & Biceps"
+          title="Day 2 Legs & Core"
           titleStyle={{ fontSize: 12 }}
           icon={{ name: "heart", type: "ionicon", color: "white" }}
         />
         <Tab.Item
-          title="Leg & Core"
+          title="Day 3 Chest & Triceps"
           titleStyle={{ fontSize: 12 }}
           icon={{ name: "heart", type: "ionicon", color: "white" }}
         />
@@ -62,7 +63,7 @@ const TabBtns = ({ userData, index, setIndex }) => {
   }
 
   // 4 DAY AVAILABILITY
-  if (userData.availIndex === 2) {
+  if (userData.availability === 2) {
     return (
       <Tab
         value={index}

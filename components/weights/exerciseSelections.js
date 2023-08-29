@@ -43,18 +43,47 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
   // 3 day per week availability
   if (userData.availability === 1) {
     return (
-      <TabView value={index} onChange={setIndex} animationType="spring">
-        <TabView.Item style={{ backgroundColor: "red", width: "100%" }}>
-          <Text h1>Day 1</Text>
-          <View></View>
-        </TabView.Item>
-        <TabView.Item style={{ backgroundColor: "yellow", width: "100%" }}>
-          <Text h1>Day 2</Text>
-        </TabView.Item>
-        <TabView.Item style={{ backgroundColor: "green", width: "100%" }}>
-          <Text h1>Day 3</Text>
-        </TabView.Item>
-      </TabView>
+      <View>
+        {/*  EXERCISES*/}
+          {index === 0 &&
+            userData.dayOne.map((exer) => {
+              return (
+                <ExerciseItem
+                  key={`${exer.name}`}
+                  exer={exer}
+                  userData={userData}
+                  setUserData={setUserData}
+                />
+              );
+            })}
+          {/*  EXERCISES */}
+          {index === 1 &&
+            userData.dayTwo.map((exer) => {
+              return (
+                <ExerciseItem
+                  key={`${exer.name}`}
+                  exer={exer}
+                  userData={userData}
+                  setUserData={setUserData}
+                />
+              );
+            })}
+            {/* LEG & CORE EXERCISES */}
+          {index === 2 &&
+            userData.dayThree.map((exer) => {
+              return (
+                <ExerciseItem
+                  key={`${exer.name}`}
+                  exer={exer}
+                  userData={userData}
+                  setUserData={setUserData}
+                />
+              );
+            })}
+        <View>
+
+        </View>
+      </View>
     );
   }
 

@@ -1,7 +1,6 @@
-import { View, Image, Text, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/style.module";
-import { Button } from "@rneui/themed";
 import Questionaire from "../components/weights/questionaire";
 import LiftingOptions from "../components/weights/liftingOptions";
 import exercises from "../components/weights/exercises";
@@ -19,6 +18,7 @@ function WeightsScreen() {
     objective: "",
     selectedNum: 0, //selected number of different exercises
     numOfWeights: 0, //number of different weights for exercises
+    //2 day availability
     upper: exercises.filter((exer) => {
       if (
         exer.muscleGroup === "Shoulders" ||
@@ -37,12 +37,16 @@ function WeightsScreen() {
         return exer;
       }
     }),
+    //3 day availability
+    dayOne: exercises.filter((exer) => exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps" ),
+    dayTwo: exercises.filter((exer) => exer.muscleGroup === "Hamstring" || exer.muscleGroup === "Thigh" || exer.muscleGroup === "Core"),
+    dayThree: exercises.filter((exer) => exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps" ),
     hideExercises: false,
     previewPlan: false,
   });
 
   // useEffect(() => {
-  //   console.log(userData.hideExercises)
+  //   console.log(userData.availability)
   // }, [userData])
 
   return (
