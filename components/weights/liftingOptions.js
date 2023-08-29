@@ -23,25 +23,24 @@ const LiftingOptions = ({ userData, setUserData }) => {
     }
   };
 
+  const countSelected = (...arry) => {
+    return [].concat(...arry)
+      .reduce((total, item) => {
+        if(item.weight > 4){
+          total += 1; 
+        }
+        return total;
+      }, 0); 
+  }
+
   /* Enables user to add sets & weights & preview workout */
   const nextBtn = () => {
     //checks if weights for selected exercises have been added
     if (userData.hideExercises) {
       //Number of weights added for each exercise
-      const counter = 
-        userData.upper.reduce((total, item) => {
-          if (item.weight > 4) {
-            total += 1;
-          }
-          return total;
-        }, 0) 
-          + 
-        userData.lower.reduce((total, item) => {
-          if (item.weight > 4) {
-            total += 1;
-          }
-          return total;
-        }, 0);
+      let counter; 
+      if(userData.availability === 0) counter = countSelected(userData.lower, userData.upper);  
+      if(userData.availability === 1) counter = countSelected(userData.dayOne, userData.dayTwo, userData.dayThree);  
 
       if (counter === userData.selectedNum) {
         setUserData({ ...userData, component: "plan" });
@@ -54,6 +53,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
       }
     }
 
+    //Hides exercises 
     if (userData.availability === 0 && userData.selectedNum === 6 ||
         userData.availability === 1 && userData.selectedNum === 7
       ) {
