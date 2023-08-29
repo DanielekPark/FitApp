@@ -10,32 +10,30 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
     return (
       <View>
         {/* UPPER BODY EXERCISES*/}
-          {index === 0 &&
-            userData.upper.map((exer) => {
-              return (
-                <ExerciseItem
-                  key={`${exer.name}`}
-                  exer={exer}
-                  userData={userData}
-                  setUserData={setUserData}
-                />
-              );
-            })}
-          {/* LOWER BODY EXERCISES */}
-          {index === 1 &&
-            userData.lower.map((exer) => {
-              return (
-                <ExerciseItem
-                  key={`${exer.name}`}
-                  exer={exer}
-                  userData={userData}
-                  setUserData={setUserData}
-                />
-              );
-            })}
-        <View>
-
-        </View>
+        {index === 0 &&
+          userData.upper.map((exer) => {
+            return (
+              <ExerciseItem
+                key={`${exer.name}`}
+                exer={exer}
+                userData={userData}
+                setUserData={setUserData}
+              />
+            );
+          })}
+        {/* LOWER BODY EXERCISES */}
+        {index === 1 &&
+          userData.lower.map((exer) => {
+            return (
+              <ExerciseItem
+                key={`${exer.name}`}
+                exer={exer}
+                userData={userData}
+                setUserData={setUserData}
+              />
+            );
+          })}
+        <View></View>
       </View>
     );
   }
@@ -44,45 +42,42 @@ const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
   if (userData.availability === 1) {
     return (
       <View>
-        {/*  EXERCISES*/}
-          {index === 0 &&
-            userData.dayOne.map((exer) => {
-              return (
-                <ExerciseItem
-                  key={`${exer.name}`}
-                  exer={exer}
-                  userData={userData}
-                  setUserData={setUserData}
-                />
-              );
-            })}
-          {/*  EXERCISES */}
-          {index === 1 &&
-            userData.dayTwo.map((exer) => {
-              return (
-                <ExerciseItem
-                  key={`${exer.name}`}
-                  exer={exer}
-                  userData={userData}
-                  setUserData={setUserData}
-                />
-              );
-            })}
-            {/* LEG & CORE EXERCISES */}
-          {index === 2 &&
-            userData.dayThree.map((exer) => {
-              return (
-                <ExerciseItem
-                  key={`${exer.name}`}
-                  exer={exer}
-                  userData={userData}
-                  setUserData={setUserData}
-                />
-              );
-            })}
-        <View>
-
-        </View>
+        {/* BACK & BICEP EXERCISES*/}
+        {index === 0 &&
+          userData.dayOne.map((exer) => {
+            return (
+              <ExerciseItem
+                key={`${exer.name}`}
+                exer={exer}
+                userData={userData}
+                setUserData={setUserData}
+              />
+            );
+          })}
+        {/*  LEGS & CORE EXERCISES */}
+        {index === 1 &&
+          userData.dayTwo.map((exer) => {
+            return (
+              <ExerciseItem
+                key={`${exer.name}`}
+                exer={exer}
+                userData={userData}
+                setUserData={setUserData}
+              />
+            );
+          })}
+        {/* CHEST & TRICEP EXERCISES */}
+        {index === 2 &&
+          userData.dayThree.map((exer) => {
+            return (
+              <ExerciseItem
+                key={`${exer.name}`}
+                exer={exer}
+                userData={userData}
+                setUserData={setUserData}
+              />
+            );
+          })}
       </View>
     );
   }

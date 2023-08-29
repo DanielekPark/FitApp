@@ -6,27 +6,35 @@ import styles from "../../styles/style.module";
 const ExerciseItem = ({ exer, setUserData, userData }) => {
   //returns a string to update userData hook
   const arrayExer = (exer) => {
-    if (
-      exer.muscleGroup === "Chest" ||
-      exer.muscleGroup === "Shoulders" ||
-      exer.muscleGroup === "Back" ||
-      exer.muscleGroup === "Biceps" ||
-      exer.muscleGroup === "Triceps"
-    ) {
-      return "upper";
+    if(userData.availability === 0){
+      if (
+        exer.muscleGroup === "Chest" ||
+        exer.muscleGroup === "Shoulders" ||
+        exer.muscleGroup === "Back" ||
+        exer.muscleGroup === "Biceps" ||
+        exer.muscleGroup === "Triceps"
+      ) {
+        return "upper";
+      }
+      if (
+        exer.muscleGroup === "Thigh" ||
+        exer.muscleGroup === "Hamstring" ||
+        exer.muscleGroup === "Calf"
+      ) {
+        return "lower";
+      }
     }
-    if (
-      exer.muscleGroup === "Thigh" ||
-      exer.muscleGroup === "Hamstring" ||
-      exer.muscleGroup === "Calf"
-    ) {
-      return "lower";
+
+    if(userData.availability === 1){
+      if (exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps") return 'dayOne'; 
+      if (exer.muscleGroup === "Thigh" || exer.muscleGroup === "Hamstring" || exer.muscleGroup === "Core" ) return 'dayTwo'; 
+      if (exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps") return 'dayThree'; 
     }
   };
 
   //Selects the exercise
   const handlePress = (exer) => {
-    let arry = arrayExer(exer);
+    const arry = arrayExer(exer);
 
     //Number of exercises type targeting the same muscle group
     const checkType = userData[arry].reduce((total, item) => {

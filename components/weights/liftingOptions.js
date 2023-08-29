@@ -25,9 +25,9 @@ const LiftingOptions = ({ userData, setUserData }) => {
 
   /* Enables user to add sets & weights & preview workout */
   const nextBtn = () => {
-    //checks weights for selected exercises have been added
-
+    //checks if weights for selected exercises have been added
     if (userData.hideExercises) {
+      //Number of weights added for each exercise
       const counter = 
         userData.upper.reduce((total, item) => {
           if (item.weight > 4) {
@@ -54,7 +54,9 @@ const LiftingOptions = ({ userData, setUserData }) => {
       }
     }
 
-    if (userData.availability === 0 && userData.selectedNum === 6) {
+    if (userData.availability === 0 && userData.selectedNum === 6 ||
+        userData.availability === 1 && userData.selectedNum === 7
+      ) {
       setUserData({ ...userData, hideExercises: true });
       return;
     }
@@ -95,7 +97,9 @@ const LiftingOptions = ({ userData, setUserData }) => {
           onPress={goBack}
         />
         {/* Hide button if there are less than 6 different exercises selected */}
-        {userData.availability === 0 && userData.selectedNum === 6 && (
+        {userData.availability === 0 && userData.selectedNum === 6 ||
+        userData.availability === 1 && userData.selectedNum === 7
+        && (
           <Button
             title="Next"
             titleStyle={{ fontWeight: "700" }}
