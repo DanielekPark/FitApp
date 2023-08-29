@@ -36,7 +36,7 @@ const Plan = ({ userData, setUserData }) => {
           onPress={() =>
               setUserData({
                 ...userData,
-                component: 'questionaire'
+                component: 'selections'
               })
             }
         />

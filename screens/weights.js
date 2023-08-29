@@ -41,10 +41,9 @@ function WeightsScreen() {
     previewPlan: false,
   });
 
-  useEffect(() => {
-    console.log(userData.component)
-    console.log(userData.hideExercises)
-  }, [userData])
+  // useEffect(() => {
+  //   console.log(userData.hideExercises)
+  // }, [userData])
 
   return (
     <View style={[styles.screenWrapper]}>

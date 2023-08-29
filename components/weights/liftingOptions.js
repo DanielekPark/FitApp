@@ -34,7 +34,8 @@ const LiftingOptions = ({ userData, setUserData }) => {
             total += 1;
           }
           return total;
-        }, 0) +
+        }, 0) 
+          + 
         userData.lower.reduce((total, item) => {
           if (item.weight > 4) {
             total += 1;
@@ -48,7 +49,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
       }
 
       if (counter !== userData.selectedNum) {
-        Alert.alert("Please add weights for all of your exercises");
+        Alert.alert('Please provide weights of all exercises');
         return;
       }
     }
