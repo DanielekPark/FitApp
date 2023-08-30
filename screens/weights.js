@@ -8,12 +8,13 @@ import Plan from "../components/weights/plan";
 
 function WeightsScreen() {
   const [userData, setUserData] = useState({
-    levels: ["Beginner", "Intermediate", "Returning user"],
+    levels: ["Beginner", "Intermediate"],
     goals: ["Gain muscle", "Get stronger"],
-    days: [2, 3, 4],
+    returningUser: "",
+    exp: "",
+    days: [2, 3],
     exercises,
     component: "questionaire",
-    exp: "",
     availability: "", //based on index
     objective: "",
     selectedNum: 0, //selected number of different exercises
@@ -38,16 +39,30 @@ function WeightsScreen() {
       }
     }),
     //3 day availability
-    dayOne: exercises.filter((exer) => exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps" ),
-    dayTwo: exercises.filter((exer) => exer.muscleGroup === "Hamstring" || exer.muscleGroup === "Thigh" || exer.muscleGroup === "Core"),
-    dayThree: exercises.filter((exer) => exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps" ),
+    dayOne: exercises.filter(
+      (exer) => exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps"
+    ),
+    dayTwo: exercises.filter(
+      (exer) =>
+        exer.muscleGroup === "Hamstring" ||
+        exer.muscleGroup === "Thigh" ||
+        exer.muscleGroup === "Core"
+    ),
+    dayThree: exercises.filter(
+      (exer) => exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps"
+    ),
     hideExercises: false,
     previewPlan: false,
   });
 
   // useEffect(() => {
-  //   console.log(userData.availability)
-  // }, [userData])
+  //   console.log(userData.exp);
+  // }, [userData]);
+
+  useEffect(() => {
+    if (userData.exp === 0) setUserData({ ...userData, days: [2, 3] });
+    if (userData.exp === 1) setUserData({ ...userData, days: [2, 3, 4] });
+  }, [userData.exp]);
 
   return (
     <View style={[styles.screenWrapper]}>
@@ -63,7 +78,9 @@ function WeightsScreen() {
         )}
 
         {/* ======= Preview Exercise Plan ========= */}
-        {userData.component === "plan" && <Plan userData={userData} setUserData={setUserData} />}
+        {userData.component === "plan" && (
+          <Plan userData={userData} setUserData={setUserData} />
+        )}
       </ScrollView>
     </View>
   );

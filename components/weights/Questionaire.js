@@ -19,8 +19,9 @@ const Questionaire = ({ userData, setUserData }) => {
           {/* ======= Next button =========*/}
           {userData.exp !== "" &&
             userData.objective !== "" &&
-            userData.availability !== "" && (
-              <Button
+            userData.availability !== "" &&
+            userData.returningUser === 1 &&
+            (<Button
                 title="Next"
                 titleStyle={{ fontWeight: "700" }}
                 buttonStyle={styles.activeBtn}
@@ -43,7 +44,7 @@ const Questionaire = ({ userData, setUserData }) => {
                 style={[
                   styles.fontTwenty,
                   styles.centerText,
-                  styles.smMarBottom,
+                  styles.smMarTop,
                   styles.aqua,
                 ]}
               >
@@ -62,6 +63,36 @@ const Questionaire = ({ userData, setUserData }) => {
                   textStyle={styles.aqua}
                   onPress={(value) => updateUserData("exp", value)}
                   selectedIndex={userData.exp}
+                  vertical
+                />
+              </View>
+            </View>
+          </View>
+          <View>
+            <View>
+              <Text
+                style={[
+                  styles.fontTwenty,
+                  styles.centerText,
+                  styles.smMarBottom,
+                  styles.aqua,
+                ]}
+              >
+                Are you a returning user?
+              </Text>
+            </View>
+            <View>
+              <View>
+                <ButtonGroup
+                  buttons={['Yes', 'No']}
+                  containerStyle={styles.btnContainer}
+                  selectedButtonStyle={styles.activeBtn}
+                  buttonStyle={styles.inactiveBtn}
+                  innerBorderStyle={styles.transparentBtn}
+                  buttonContainerStyle={styles.btnWrapper}
+                  textStyle={styles.aqua}
+                  onPress={(value) => updateUserData('returningUser', value)}
+                  selectedIndex={userData.returningUser}
                   vertical
                 />
               </View>
