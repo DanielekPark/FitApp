@@ -54,10 +54,15 @@ const LiftingOptions = ({ userData, setUserData }) => {
     }
 
     //Hides exercises 
-    if (userData.availability === 0 && userData.selectedNum === 6 ||
-        userData.availability === 1 && userData.selectedNum === 7
-      ) {
+    if (userData.availability === 0 && userData.selectedNum === 6) {
       setUserData({ ...userData, hideExercises: true });
+      setIndex(0);
+      return;
+    }
+
+    if (userData.availability === 1 && userData.selectedNum === 7) {
+      setUserData({ ...userData, hideExercises: true });
+      setIndex(0);
       return;
     }
   };
@@ -97,9 +102,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
           onPress={goBack}
         />
         {/* Hide button if there are less than 6 different exercises selected */}
-        {userData.availability === 0 && userData.selectedNum === 6 ||
-        userData.availability === 1 && userData.selectedNum === 7
-        && (
+
           <Button
             title="Next"
             titleStyle={{ fontWeight: "700" }}
@@ -111,7 +114,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
             }}
             onPress={nextBtn}
           />
-        )}
+        
       </View>
       <View style={styles.smMarTop}>
         <View>

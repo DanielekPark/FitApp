@@ -46,7 +46,7 @@ function WeightsScreen() {
   });
 
   // useEffect(() => {
-  //   console.log(userData.selectedNum)
+  //   console.log(userData.availability)
   // }, [userData])
 
   return (
