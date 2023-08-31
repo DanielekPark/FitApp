@@ -20,7 +20,6 @@ const Questionaire = ({ userData, setUserData }) => {
           {userData.exp !== "" &&
             userData.objective !== "" &&
             userData.availability !== "" &&
-            userData.returningUser === 1 &&
             (<Button
                 title="Next"
                 titleStyle={{ fontWeight: "700" }}

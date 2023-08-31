@@ -1,12 +1,12 @@
 import React from "react";
-import { View } from "react-native";
-import { ListItem, Avatar, Text } from "@rneui/themed";
+import { View, Text } from "react-native";
+import { ListItem, Avatar,  } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const ExerciseItem = ({ exer, setUserData, userData }) => {
   //returns a string to update userData hook
   const arrayExer = (exer) => {
-    if(userData.availability === 0){
+    if (userData.availability === 0) {
       if (
         exer.muscleGroup === "Chest" ||
         exer.muscleGroup === "Shoulders" ||
@@ -25,10 +25,17 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
       }
     }
 
-    if(userData.availability === 1){
-      if (exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps") return 'dayOne'; 
-      if (exer.muscleGroup === "Thigh" || exer.muscleGroup === "Hamstring" || exer.muscleGroup === "Core" ) return 'dayTwo'; 
-      if (exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps") return 'dayThree'; 
+    if (userData.availability === 1) {
+      if (exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps")
+        return "dayOne";
+      if (
+        exer.muscleGroup === "Thigh" ||
+        exer.muscleGroup === "Hamstring" ||
+        exer.muscleGroup === "Core"
+      )
+        return "dayTwo";
+      if (exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps")
+        return "dayThree";
     }
   };
 
@@ -79,19 +86,33 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
     }
   };
 
-  //Adds weight for an exercise
-  const handleChange = (value) => {
-    const weight = Number(value);
+  //Adds either reps or weight for an exercise
+  const handleChange = (value, key) => {
+    const number = Number(value);
     const arry = arrayExer(exer);
 
     const updateWeight = userData[arry].map((item) => {
       if (exer.name === item.name) {
-        return { ...item, weight: weight };
+        return { ...item, [key]: number};
       }
       return item;
     });
-    
+
     setUserData({ ...userData, [arry]: updateWeight });
+  };
+
+  //Adds repetitions to exercises completed by user
+  const addReps = (value) => {
+    const arry = arrayExer(exer);
+    const reps = Number(value);
+
+    const updateReps = userData[arry].map((item) => {
+      if (exer.name === item.name) {
+        return { ...item, reps };
+      }
+      return item;
+    });
+    setUserData({ ...userData, [arry]: updateReps });
   };
 
   return (
@@ -105,7 +126,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
               styles.mxAuto,
               exer.chosen ? {} : { display: "none" },
             ]
-          : [styles.listItem, { marginBottom: 2 }, styles.mxAuto]
+          : [styles.listItem, { marginBottom: 5 }, styles.mxAuto]
       }
       bottomDivider
     >
@@ -119,29 +140,46 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
           onPress={() => handlePress(exer)}
         />
       )}
-      <Avatar
-        size="large"
-        source={exer.startImg}
-      />
+      <Avatar size="large" source={exer.startImg} />
       <ListItem.Content>
         <ListItem.Title>{exer.name}</ListItem.Title>
         <ListItem.Subtitle>
           Primary muscle group: {exer.muscleGroup}
         </ListItem.Subtitle>
         {/* Show when 6 diff exercises are selected */}
-        <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 5}}>
-        {userData.hideExercises && (
-            <ListItem.Input
-              style={{ textAlign: "left" }}
-              placeholder="1 Rep max"
-              maxLength={3}
-              keyboardType="numeric"
-              onChangeText={handleChange}
-            />
-        )}
-        {userData.hideExercises && (
-            <Text>{exer.weight} lbs</Text>
-        )}
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+            alignItems: "center",
+            marginTop: 5,
+          }}
+        >
+          {userData.returningUser === 0 && userData.hideExercises && (
+            <View style={{ width: "50%", marginBottom: 5 }}>
+              <ListItem.Input
+                label={`${exer.reps} reps`}
+                style={{ textAlign: "left", fontSize: 14 }}
+                placeholder="Reps completed"
+                maxLength={2}
+                keyboardType="numeric"
+                onChangeText={(value) => handleChange(value, 'reps') }
+              />
+            </View>
+          )}
+          {userData.hideExercises && (
+            <View style={{ width: "50%" }}>
+              <ListItem.Input
+              label={`${exer.weight} lbs`}
+                style={{ textAlign: "left", fontSize: 14 }}
+                placeholder="1 Rep max"
+                maxLength={3}
+                keyboardType="numeric"
+                onChangeText={(value) => handleChange(value, 'weight')}
+              />
+            </View>
+          )}
         </View>
       </ListItem.Content>
     </ListItem>

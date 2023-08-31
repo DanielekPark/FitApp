@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   Weights Screen 
   ======================= */
   listItem : {
-    width: '90%'
+    width: '99%'
   },
   mxAuto: {
     marginLeft: "auto",

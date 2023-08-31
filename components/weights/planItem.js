@@ -1,18 +1,26 @@
 import React from "react";
-import { View, Image, Text } from "react-native";
+import { View, Text } from "react-native";
 import { Button, ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const PlanItem = ({ exer, showDemo, setShowDemo, userData, setUserData, workoutBtns, setWorkoutBtns }) => {
 
-  //Changes for exercise based on warm-up or week
-  const determineWeight = (exer, workoutBtns) => {
+  //Estimated weight & repetitions for user
+  const determineNumbers = (exer, workoutBtns) => {
     let percentage; 
+    let repetitions; 
     if (workoutBtns === 'warm-up') percentage = 0.5;
     if (workoutBtns === 'this-week') percentage = 0.7;
     if (workoutBtns === 'next-week') percentage = 0.6;
-    //Estimated weight for user
-    return Math.trunc(exer.weight * percentage);
+
+    if(userData.returningUser === 1){
+      if(percentage === 0.5) repetitions = 8; 
+      if(percentage === 0.7) repetitions = 12;
+      if(percentage === 0.6) repetitions = 10; 
+      //First item in the array is the estimated weight
+      return [Math.trunc(exer.weight * percentage), repetitions];
+    }
+    
   };
 
   //Opens modal & finds the exercise 
@@ -39,11 +47,11 @@ const PlanItem = ({ exer, showDemo, setShowDemo, userData, setUserData, workoutB
       <ListItem.Content>
         <ListItem.Title>{exer.name}</ListItem.Title>
         <ListItem.Subtitle>
-            3 sets {workoutBtns === 'warm-up' && `8 reps ${determineWeight(exer, workoutBtns)} lbs`} 
-            {workoutBtns === 'this-week' && `12 reps ${determineWeight(exer, workoutBtns)} lbs`} 
-            {workoutBtns === 'next-week' && `10 reps ${determineWeight(exer, workoutBtns)} lbs`} 
+            3 sets {workoutBtns === 'warm-up' && `${determineNumbers(exer, workoutBtns)[1]} reps ${determineNumbers(exer, workoutBtns)[0]} lbs`} 
+            {workoutBtns === 'this-week' && `${determineNumbers(exer, workoutBtns)[1]} reps ${determineNumbers(exer, workoutBtns)[0]} lbs`} 
+            {workoutBtns === 'next-week' && `${determineNumbers(exer, workoutBtns)[1]} reps ${determineNumbers(exer, workoutBtns)[0]} lbs`} 
         </ListItem.Subtitle>
-        <ListItem.Subtitle>1-2 min rest</ListItem.Subtitle>
+        <ListItem.Subtitle>{workoutBtns === 'warm-up'? '1 min rest' : '1-2 min rest'}</ListItem.Subtitle>
       </ListItem.Content>
       <Button
         title="Demo"
