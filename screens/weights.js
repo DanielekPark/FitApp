@@ -15,10 +15,9 @@ function WeightsScreen() {
     days: [2, 3],
     exercises,
     component: "questionaire",
-    availability: "", //based on index
-    objective: "",
-    selectedNum: 0, //selected number of different exercises
-    numOfWeights: 0, //number of different weights for exercises
+    availability: "", //Index based
+    selectedNum: 0, //Number of different types of exercises selected
+    numOfWeights: 0, //Number of weights added to the exercises
     //2 day availability
     upper: exercises.filter((exer) => {
       if (
@@ -52,7 +51,6 @@ function WeightsScreen() {
       (exer) => exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps"
     ),
     hideExercises: false,
-    previewPlan: false,
   });
 
   // useEffect(() => {
