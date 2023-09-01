@@ -4,10 +4,59 @@ import { Button, Text } from "@rneui/themed";
 import styles from "../../styles/style.module";
 import DemoModal from "./demoModal";
 import List from "./list";
+import exercises from "./exercises";
 
 const Plan = ({ userData, setUserData }) => {
   const [showDemo, setShowDemo] = useState(false);
   const [workoutBtns, setWorkoutBtns] = useState("warm-up");
+
+  const startOverBtn = () => {
+    setUserData({...userData,
+      returningUser: "",
+      exp: "",
+      days: [2, 3],
+      exercises,
+      component: "questionaire",
+      availability: "", //based on index
+      objective: "",
+      selectedNum: 0, //selected number of different exercises
+      numOfWeights: 0, //number of different weights for exercises
+      //2 day availability
+      upper: exercises.filter((exer) => {
+        if (
+          exer.muscleGroup === "Shoulders" ||
+          exer.muscleGroup === "Chest" ||
+          exer.muscleGroup === "Back"
+        ) {
+          return exer;
+        }
+      }),
+      lower: exercises.filter((exer) => {
+        if (
+          exer.muscleGroup === "Thigh" ||
+          exer.muscleGroup === "Hamstring" ||
+          exer.muscleGroup === "Calf"
+        ) {
+          return exer;
+        }
+      }),
+      //3 day availability
+      dayOne: exercises.filter(
+        (exer) => exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps"
+      ),
+      dayTwo: exercises.filter(
+        (exer) =>
+          exer.muscleGroup === "Hamstring" ||
+          exer.muscleGroup === "Thigh" ||
+          exer.muscleGroup === "Core"
+      ),
+      dayThree: exercises.filter(
+        (exer) => exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps"
+      ),
+      hideExercises: false,
+      previewPlan: false,
+    })
+  }
 
   return (
     <View>
@@ -27,19 +76,26 @@ const Plan = ({ userData, setUserData }) => {
         </View>
       </View>
       <View
-        style={[styles.smMarBottom, styles.smMarTop, { flexDirection: "row" }]}
+        style={[styles.smMarBottom, styles.smMarTop, { flexDirection: "row", justifyContent:'space-between' }]}
       >
         <Button
           title="Go Back"
           titleStyle={{ fontWeight: "700" }}
           buttonStyle={styles.activeBtn}
-          containerStyle={styles.btnTitleContain}
+          containerStyle={{width: '49%'}}
           onPress={() =>
             setUserData({
               ...userData,
               component: "selections",
             })
           }
+        />
+        <Button
+          title="Start Over"
+          titleStyle={{ fontWeight: "700" }}
+          buttonStyle={styles.activeBtn}
+          containerStyle={{width: '49%'}}
+          onPress={startOverBtn}
         />
       </View>
       <View

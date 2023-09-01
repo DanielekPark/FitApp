@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import ExerciseItem from "./exerciseItem";
 
-const ExerciseSelections = ({ userData, setUserData, index, setIndex }) => {
+const ExerciseSelections = ({ userData, setUserData, index }) => {
   // 2 day per week availability
   if (userData.availability === 0) {
     return (

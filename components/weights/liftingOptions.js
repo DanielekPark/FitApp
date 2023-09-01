@@ -10,7 +10,6 @@ const LiftingOptions = ({ userData, setUserData }) => {
   const [index, setIndex] = useState(0);
   const [showDialog, setShowDialog] = useState(false); 
 
-  //Goes back to previous section of weightlifting
   const goBack = () => {
     if(userData.component === 'selections' && userData.hideExercises){
       setUserData({ ...userData, hideExercises: false });
@@ -23,6 +22,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
     }
   };
 
+  //Number of selected exercises
   const countSelected = (...arry) => {
     return [].concat(...arry)
       .reduce((total, item) => {
@@ -37,8 +37,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
   const nextBtn = () => {
     //checks if weights for selected exercises have been added
     if (userData.hideExercises) {
-      //Number of weights added for each exercise
-      let counter; 
+      let counter; //Number of weights added for each exercise
       if(userData.availability === 0) counter = countSelected(userData.lower, userData.upper);  
       if(userData.availability === 1) counter = countSelected(userData.dayOne, userData.dayTwo, userData.dayThree);  
 
@@ -46,7 +45,7 @@ const LiftingOptions = ({ userData, setUserData }) => {
         setUserData({ ...userData, component: "plan" });
         return;
       }
-
+      //Shows alert if not enough exercises were selected
       if (counter !== userData.selectedNum) {
         Alert.alert('Please provide weights of all exercises');
         return;
@@ -54,16 +53,13 @@ const LiftingOptions = ({ userData, setUserData }) => {
     }
 
     //Hides exercises 
-    if (userData.availability === 0 && userData.selectedNum === 6) {
+    if (userData.availability === 0 && userData.selectedNum === 6 || 
+      userData.availability === 1 && userData.selectedNum === 7) {
       setUserData({ ...userData, hideExercises: true });
       setIndex(0);
       return;
-    }
-
-    if (userData.availability === 1 && userData.selectedNum === 7) {
-      setUserData({ ...userData, hideExercises: true });
-      setIndex(0);
-      return;
+    }else {
+      Alert.alert('Please select more exercises');
     }
   };
 
@@ -101,8 +97,6 @@ const LiftingOptions = ({ userData, setUserData }) => {
           }}
           onPress={goBack}
         />
-        {/* Hide button if there are less than 6 different exercises selected */}
-
           <Button
             title="Next"
             titleStyle={{ fontWeight: "700" }}

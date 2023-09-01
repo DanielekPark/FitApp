@@ -1,8 +1,6 @@
 import React from "react";
-import { Overlay, Button, Icon, Card } from "@rneui/themed";
-import { View, Text, StyleSheet, Image } from "react-native";
-import Calculator from "../calculator/calculator";
-import styles from "../../styles/style.module";
+import { Overlay, Icon } from "@rneui/themed";
+import { View, Text, Image } from "react-native";
 
 const DemoModal = ({ showDemo, setShowDemo, userData, setUserData }) => {
   //closes modal window
@@ -31,7 +29,6 @@ const DemoModal = ({ showDemo, setShowDemo, userData, setUserData }) => {
               justifyContent: "space-between",
             }}
           >
-            
             <Image
               style={{ padding: 0, height: 150, width: "45%" }}
               source={selected?.startImg}

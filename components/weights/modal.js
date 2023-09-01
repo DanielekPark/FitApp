@@ -1,8 +1,7 @@
 import React from "react";
-import { Overlay, Button, Icon } from "@rneui/themed";
-import { View, Text, StyleSheet } from "react-native";
+import { Overlay, Icon } from "@rneui/themed";
+import { View } from "react-native";
 import Calculator from "../calculator/calculator";
-import styles from "../../styles/style.module";
 
 const Modal = ({ setShowDialog, showDialog }) => {
   //closes modal window

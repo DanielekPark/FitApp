@@ -56,7 +56,7 @@ function WeightsScreen() {
   });
 
   // useEffect(() => {
-  //   console.log(userData.exp);
+  //   console.log(userData.objective);
   // }, [userData]);
 
   useEffect(() => {

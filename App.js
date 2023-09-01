@@ -1,7 +1,6 @@
 import React from "react";
 import { View } from "react-native";
 import { createTheme, ThemeProvider } from "@rneui/themed";
-import Component from "./components/MyComponent";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/home"; 
 import WeightsScreen from "./screens/weights";
