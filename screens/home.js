@@ -18,7 +18,7 @@ function HomeScreen() {
     },
     {
       title: "Tips",
-      isOpen: false,
+      isOpen: true,
     },
     {
       title: "Strategies",

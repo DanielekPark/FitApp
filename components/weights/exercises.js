@@ -180,7 +180,7 @@ const exercises = [
   //CORE
   {
     name: "Leg lifts",
-    muscleGroup: "core",
+    muscleGroup: "Core",
     chosen: false,
     weight: 0,
     reps: 0,

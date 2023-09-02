@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Alert } from "react-native";
 import React from "react";
 import styles from "../../styles/style.module";
 import { ButtonGroup, Button } from "@rneui/themed";
@@ -9,6 +9,16 @@ const Questionaire = ({ userData, setUserData }) => {
   };
 
   const showButtons = () => {
+    if(userData.returning === 0){
+      if(userData.numOfWeeksUsed === ""){
+        Alert.alert('Please answer all the questions');
+        return;
+      }
+
+      if(userData.numOfWeeksUsed < 12){
+        setUserData({ ...userData, numOfMonthsUsed: 0});
+      }
+    }
     setUserData({ ...userData, component: "selections" });
   };
 
@@ -158,7 +168,43 @@ const Questionaire = ({ userData, setUserData }) => {
                 />
               </View>
             </View>
+
           </View>
+          
+          {//FOR RETURNING & INTERMEDIATE USERS
+          userData.returningUser === 0 && 
+          <View>
+            <View>
+              <Text
+                style={[
+                  styles.fontTwenty,
+                  styles.centerText,
+                  styles.smMarBottom,
+                  styles.smMarTop,
+                  styles.aqua,
+                ]}
+              >
+                Number of months using this app
+              </Text>
+            </View>
+            <View>
+              <View>
+                <ButtonGroup
+                  buttons={['Less than 3 months', '3 - 4 months']}
+                  containerStyle={styles.btnContainer}
+                  selectedButtonStyle={styles.activeBtn}
+                  buttonStyle={styles.inactiveBtn}
+                  buttonContainerStyle={styles.btnWrapper}
+                  innerBorderStyle={styles.transparentBtn}
+                  textStyle={styles.aqua}
+                  onPress={(value) => updateUserData("numOfMonthsUsed", value)}
+                  selectedIndex={userData.availability}
+                  vertical
+                />
+              </View>
+            </View>
+
+          </View>}
         </View>
       </View>
     </>

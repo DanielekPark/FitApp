@@ -5,7 +5,8 @@ import { Button } from "@rneui/base";
 import TabBtns from "./tabBtns";
 import ExerciseSelections from "./exerciseSelections";
 import Modal from "./modal";
-
+//enable core workout to ignore weight
+//add border to input
 const LiftingOptions = ({ userData, setUserData }) => {
   const [index, setIndex] = useState(0);
   const [showDialog, setShowDialog] = useState(false); 
@@ -53,8 +54,8 @@ const LiftingOptions = ({ userData, setUserData }) => {
     }
 
     //Hides exercises 
-    if (userData.availability === 0 && userData.selectedNum === 6 || 
-      userData.availability === 1 && userData.selectedNum === 7) {
+    if (userData.availability === 0 && userData.selectedNum === 7 || 
+      userData.availability === 1 && userData.selectedNum === 8) {
       setUserData({ ...userData, hideExercises: true });
       setIndex(0);
       return;

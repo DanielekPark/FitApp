@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React from "react";
+import { View, Text } from "react-native";
+import styles from "../../styles/style.module";
 
 const Tips = () => {
   const glossaryTerms = [
@@ -19,17 +20,17 @@ const Tips = () => {
   return (
     <View>
       <View>
-        <Text >
+        <Text style={styles.aqua}>
           Tips
         </Text>
-        <Text>
+        <Text style={styles.aqua}>
           Glossary terms
         </Text>
         <View>
           {glossaryTerms.map((item, index) => {
             return (
-              <View>
-                <Text key={`${item.term + index}`}>
+              <View key={`${item.term + index}`}>
+                <Text style={styles.aqua}>
                   {`\u2022 ${item.term}: ${item.def}`}
                 </Text>
               </View>
@@ -37,27 +38,26 @@ const Tips = () => {
           })}
         </View>
 
-        <Text>
+        <Text style={styles.aqua}>
           Training Age
         </Text>
-        <Text>
+        <Text style={styles.aqua}>
           {`\u2022 Beginners: less than 2 months`}
         </Text>
-        <Text>
-          {`\u2022 Intermediate: 2 - 6 months`}
+        <Text style={styles.aqua}>
+          {`\u2022 Intermediate: 3 - 6 months`}
         </Text>
-        <Text>
+        <Text style={styles.aqua}>
           {`\u2022 Advanced: more than or equal to 1 year`}
         </Text>
 
-        <Text>
+        <Text style={styles.aqua}>
           Exercise frequency
         </Text>
-        <Text>
+        <Text style={styles.aqua}>
           After exercising a muscle group (e.g. chest, back), wait a minimum 48
-          hours train the same muscle group again.
+          hours to train the same muscle group again.
         </Text>
-        {/* strength range needs work */}
       </View>
     </View>
   );

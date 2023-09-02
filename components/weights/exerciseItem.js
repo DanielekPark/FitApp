@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { ListItem, Avatar,  } from "@rneui/themed";
+import { ListItem, Avatar } from "@rneui/themed";
 import styles from "../../styles/style.module";
 
 const ExerciseItem = ({ exer, setUserData, userData }) => {
@@ -19,6 +19,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
       if (
         exer.muscleGroup === "Thigh" ||
         exer.muscleGroup === "Hamstring" ||
+        exer.muscleGroup === "Core" ||
         exer.muscleGroup === "Calf"
       ) {
         return "lower";
@@ -31,6 +32,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
       if (
         exer.muscleGroup === "Thigh" ||
         exer.muscleGroup === "Hamstring" ||
+        exer.muscleGroup === "Calf" ||
         exer.muscleGroup === "Core"
       )
         return "dayTwo";
@@ -93,26 +95,12 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
 
     const updateWeight = userData[arry].map((item) => {
       if (exer.name === item.name) {
-        return { ...item, [key]: number};
+        return { ...item, [key]: number };
       }
       return item;
     });
 
     setUserData({ ...userData, [arry]: updateWeight });
-  };
-
-  //Adds repetitions to exercises completed by user
-  const addReps = (value) => {
-    const arry = arrayExer(exer);
-    const reps = Number(value);
-
-    const updateReps = userData[arry].map((item) => {
-      if (exer.name === item.name) {
-        return { ...item, reps };
-      }
-      return item;
-    });
-    setUserData({ ...userData, [arry]: updateReps });
   };
 
   return (
@@ -142,8 +130,8 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
       )}
       <Avatar size="large" source={exer.startImg} />
       <ListItem.Content>
-        <ListItem.Title>{exer.name}</ListItem.Title>
-        <ListItem.Subtitle>
+        <ListItem.Title style={styles.aqua}>{exer.name}</ListItem.Title>
+        <ListItem.Subtitle style={styles.aqua}>
           Primary muscle group: {exer.muscleGroup}
         </ListItem.Subtitle>
         {/* Show when 6 diff exercises are selected */}
@@ -161,22 +149,24 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
               <ListItem.Input
                 label={`${exer.reps} reps`}
                 style={{ textAlign: "left", fontSize: 14 }}
+                inputContainerStyle={{backgroundColor: '#dadde1'}}
                 placeholder="Reps completed"
                 maxLength={2}
                 keyboardType="numeric"
-                onChangeText={(value) => handleChange(value, 'reps') }
+                onChangeText={(value) => handleChange(value, "reps")}
               />
             </View>
           )}
           {userData.hideExercises && (
             <View style={{ width: "50%" }}>
               <ListItem.Input
-              label={`${exer.weight} lbs`}
+                label={`${exer.weight} lbs`}
                 style={{ textAlign: "left", fontSize: 14 }}
+                inputContainerStyle={{ backgroundColor: "#dadde1" }}
                 placeholder="1 Rep max"
                 maxLength={3}
                 keyboardType="numeric"
-                onChangeText={(value) => handleChange(value, 'weight')}
+                onChangeText={(value) => handleChange(value, "weight")}
               />
             </View>
           )}

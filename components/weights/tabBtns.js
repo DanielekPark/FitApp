@@ -18,13 +18,11 @@ const TabBtns = ({ userData, index, setIndex }) => {
       >
         <Tab.Item
           title="Day 1"
-          titleStyle={{ fontSize: 12 }}
-          icon={{ name: "timer", type: "ionicon", color: "white" }}
+          titleStyle={{ fontSize: 20 }}
         />
         <Tab.Item
           title="Day 2"
-          titleStyle={{ fontSize: 12 }}
-          icon={{ name: "heart", type: "ionicon", color: "white" }}
+          titleStyle={{ fontSize: 20 }}
         />
       </Tab>
     );
@@ -45,18 +43,15 @@ const TabBtns = ({ userData, index, setIndex }) => {
       >
         <Tab.Item
           title="Day 1 Back & Biceps"
-          titleStyle={{ fontSize: 12 }}
-          icon={{ name: "timer", type: "ionicon", color: "white" }}
+          titleStyle={{ fontSize: 20 }}
         />
         <Tab.Item
           title="Day 2 Legs & Core"
-          titleStyle={{ fontSize: 12 }}
-          icon={{ name: "heart", type: "ionicon", color: "white" }}
+          titleStyle={{ fontSize: 20 }}
         />
         <Tab.Item
           title="Day 3 Chest & Triceps"
-          titleStyle={{ fontSize: 12 }}
-          icon={{ name: "heart", type: "ionicon", color: "white" }}
+          titleStyle={{ fontSize: 20 }}
         />
       </Tab>
     );
@@ -76,23 +71,19 @@ const TabBtns = ({ userData, index, setIndex }) => {
       >
         <Tab.Item
           title="Recent"
-          titleStyle={{ fontSize: 12 }}
-          icon={{ name: "timer", type: "ionicon", color: "white" }}
+          titleStyle={{ fontSize: 20 }}
         />
         <Tab.Item
           title="favorite"
-          titleStyle={{ fontSize: 12 }}
-          icon={{ name: "heart", type: "ionicon", color: "white" }}
+          titleStyle={{ fontSize: 20 }}
         />
         <Tab.Item
           title="favorite"
-          titleStyle={{ fontSize: 12 }}
-          icon={{ name: "heart", type: "ionicon", color: "white" }}
+          titleStyle={{ fontSize: 20 }}
         />
         <Tab.Item
           title="favorite"
-          titleStyle={{ fontSize: 12 }}
-          icon={{ name: "heart", type: "ionicon", color: "white" }}
+          titleStyle={{ fontSize: 20 }}
         />
       </Tab>
     );

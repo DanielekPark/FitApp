@@ -66,9 +66,9 @@ const PlanItem = ({
     >
       <Avatar size="large" source={exer.startImg} />
       <ListItem.Content>
-        <ListItem.Title>{exer.name}</ListItem.Title>
-        <ListItem.Subtitle>
-          3 sets{" "}
+        <ListItem.Title  style={styles.aqua}>{exer.name}</ListItem.Title>
+        <ListItem.Subtitle style={styles.aqua}>
+          {userData.numOfMonthsUsed === 0 ? '1-3 sets ' : '2-4 sets '}
           {workoutBtns === "warm-up" &&
             `${determineNumbers(exer, workoutBtns)[1]} reps ${
               determineNumbers(exer, workoutBtns)[0]
@@ -82,8 +82,8 @@ const PlanItem = ({
               determineNumbers(exer, workoutBtns)[0]
             } lbs`}
         </ListItem.Subtitle>
-        <ListItem.Subtitle>
-          {workoutBtns === "warm-up" ? "1 min rest" : "1-2 min rest"}
+        <ListItem.Subtitle  style={styles.aqua}>
+          {workoutBtns === "warm-up" ? "1 min rest" : "1-2 min rest "}
         </ListItem.Subtitle>
       </ListItem.Content>
       <Button

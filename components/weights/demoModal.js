@@ -2,7 +2,7 @@ import React from "react";
 import { Overlay, Icon } from "@rneui/themed";
 import { View, Text, Image } from "react-native";
 
-const DemoModal = ({ showDemo, setShowDemo, userData, setUserData }) => {
+const DemoModal = ({ showDemo, setShowDemo, userData }) => {
   //closes modal window
   const closeModal = () => setShowDemo(false);
   const selected = userData?.exercises?.find(
@@ -36,6 +36,7 @@ const DemoModal = ({ showDemo, setShowDemo, userData, setUserData }) => {
             <Icon
               name="arrow-right"
               type="font-awesome"
+              color="#33cccc"
               style={{ marginTop: "auto", marginBottom: "auto" }}
             />
             <Image

@@ -11,13 +11,14 @@ function WeightsScreen() {
     levels: ["Beginner", "Intermediate"],
     goals: ["Gain muscle", "Get stronger"],
     returningUser: "",
+    numOfMonthsUsed: 0,
     exp: "",
     days: [2, 3],
     exercises,
     component: "questionaire",
     availability: "", //Index based
     selectedNum: 0, //Number of different types of exercises selected
-    numOfWeights: 0, //Number of weights added to the exercises
+    numOfWeights: 0, //Number of weights added to exercises
     //2 day availability
     upper: exercises.filter((exer) => {
       if (
@@ -32,6 +33,7 @@ function WeightsScreen() {
       if (
         exer.muscleGroup === "Thigh" ||
         exer.muscleGroup === "Hamstring" ||
+        exer.muscleGroup === "Core" ||
         exer.muscleGroup === "Calf"
       ) {
         return exer;
@@ -45,22 +47,28 @@ function WeightsScreen() {
       (exer) =>
         exer.muscleGroup === "Hamstring" ||
         exer.muscleGroup === "Thigh" ||
-        exer.muscleGroup === "Core"
+        exer.muscleGroup === "Calf" ||
+        exer.muscleGroup === "Core" 
     ),
     dayThree: exercises.filter(
       (exer) => exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps"
     ),
+    //dayFour: [],
     hideExercises: false,
   });
 
   // useEffect(() => {
-  //   console.log(userData.objective);
+  //   console.log(userData.numOfMonthsUsed);
   // }, [userData]);
 
-  useEffect(() => {
-    if (userData.exp === 0) setUserData({ ...userData, days: [2, 3] });
-    if (userData.exp === 1) setUserData({ ...userData, days: [2, 3, 4] });
-  }, [userData.exp]);
+    /* 
+      intermediate day 4 availability
+      dayOne 2 back(1 single joint) exercises 1 bicep
+      dayTwo all include calf
+      dayThree 2 chest (1 single joint), 1 tricep
+      dayFour 1 ab & 1 oblique
+    */
+  
 
   return (
     <View style={[styles.screenWrapper]}>
