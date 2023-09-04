@@ -20,5 +20,4 @@ Icons and Images
 * [Figma](https://www.figma.com/)
 * [Flaticon](https://www.flaticon.com/)
 * [Pexels](https://www.pexels.com/)
-* [Freepik](https://www.freepik.com/)
 * [Unsplash](https://unsplash.com/)
