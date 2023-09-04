@@ -10,7 +10,7 @@ function HomeScreen() {
   const [tabs, setTabs] = useState([
     {
       title: "Tutorial",
-      isOpen: false,
+      isOpen: true,
     },
     {
       title: "Calculator",
@@ -18,7 +18,7 @@ function HomeScreen() {
     },
     {
       title: "Tips",
-      isOpen: true,
+      isOpen: false,
     },
     {
       title: "Strategies",
@@ -64,7 +64,7 @@ function HomeScreen() {
         </View>
 
         {/*==== TUTUORIAL ====*/}
-        <View style={{ width: "95%" }}>
+        <View style={{ width: "100%" }}>
           <ListItem.Accordion
             onPress={() => toggleTab("Tutorial")}
             isExpanded={tabs[0].isOpen}
@@ -136,8 +136,8 @@ function HomeScreen() {
             bottomDivider
           >
             <ListItem>
-              <View>
-                <Text>Strategies</Text>
+              <View >
+                <Text style={styles.aqua}>App is meant is meant provide a sample of a workout, there can be many different strategies on how to workout based on your need. </Text>
               </View>
             </ListItem>
           </ListItem.Accordion>
