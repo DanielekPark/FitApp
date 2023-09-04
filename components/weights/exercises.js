@@ -78,8 +78,8 @@ const exercises = [
     reps: 0,
     availability: 0,
     goal: "",
-    startImg: require("../../assets/favicon.png"),
-    endImg: require("../../assets/favicon.png"),
+    startImg: require("../../assets/squat-start.png"),
+    endImg: require("../../assets/calf-raise-end.png"),
     movement: "Single",
     showImage: false
   },
@@ -186,8 +186,8 @@ const exercises = [
     reps: 0,
     availability: 0,
     goal: "",
-    startImg: require("../../assets/favicon.png"),
-    endImg: require("../../assets/favicon.png"),
+    startImg: require("../../assets/crunches-start.png"),
+    endImg: require("../../assets/leg-lift-end.png"),
     movement: "Single",
     showImage: false
   },
@@ -228,6 +228,19 @@ const exercises = [
     goal: "",
     startImg: require("../../assets/images/bicep-curl-start.png"),
     endImg: require("../../assets/images/bicep-curl-end.png"),
+    movement: "single",
+    showImage: false
+  },
+  {
+    name: "Hammer curls",
+    muscleGroup: "Biceps",
+    chosen: false,
+    weight: 0,
+    reps: 0,
+    availability: 0,
+    goal: "",
+    startImg: require("../../assets/images/bicep-curl-start.png"),
+    endImg: require("../../assets/images/hammer-curl-end.png"),
     movement: "single",
     showImage: false
   },
@@ -275,9 +288,11 @@ const exercises = [
 ];
 /* 
 Images needed for:
-Calf raise
-Seated calf raise
+Hamstring curl end
+Seated calf raise, (start & end)
+Lateral raise, (start & end)
 Leg lifts
+Tricep overhead extension end
 */
 
 export default exercises;
