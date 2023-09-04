@@ -41,14 +41,14 @@ function WeightsScreen() {
     }),
     //3 day availability
     dayOne: exercises.filter(
-      (exer) => exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps"
+      (exer) => exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps"||
+        exer.muscleGroup === "Core" 
     ),
     dayTwo: exercises.filter(
       (exer) =>
         exer.muscleGroup === "Hamstring" ||
         exer.muscleGroup === "Thigh" ||
-        exer.muscleGroup === "Calf" ||
-        exer.muscleGroup === "Core" 
+        exer.muscleGroup === "Calf" 
     ),
     dayThree: exercises.filter(
       (exer) => exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps"

@@ -10,9 +10,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
       if (
         exer.muscleGroup === "Chest" ||
         exer.muscleGroup === "Shoulders" ||
-        exer.muscleGroup === "Back" ||
-        exer.muscleGroup === "Biceps" ||
-        exer.muscleGroup === "Triceps"
+        exer.muscleGroup === "Back" 
       ) {
         return "upper";
       }
@@ -27,13 +25,13 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
     }
 
     if (userData.availability === 1) {
-      if (exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps")
+      if (exer.muscleGroup === "Back" || exer.muscleGroup === "Biceps" ||
+        exer.muscleGroup === "Core")
         return "dayOne";
       if (
         exer.muscleGroup === "Thigh" ||
         exer.muscleGroup === "Hamstring" ||
-        exer.muscleGroup === "Calf" ||
-        exer.muscleGroup === "Core"
+        exer.muscleGroup === "Calf" 
       )
         return "dayTwo";
       if (exer.muscleGroup === "Chest" || exer.muscleGroup === "Triceps")
@@ -149,7 +147,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
               <ListItem.Input
                 label={`${exer.reps} reps`}
                 style={{ textAlign: "left", fontSize: 14 }}
-                inputContainerStyle={{backgroundColor: '#dadde1'}}
+                inputContainerStyle={{borderColor: '#dadde1', borderWidth: 1}}
                 placeholder="Reps completed"
                 maxLength={2}
                 keyboardType="numeric"
@@ -162,7 +160,7 @@ const ExerciseItem = ({ exer, setUserData, userData }) => {
               <ListItem.Input
                 label={`${exer.weight} lbs`}
                 style={{ textAlign: "left", fontSize: 14 }}
-                inputContainerStyle={{ backgroundColor: "#dadde1" }}
+                inputContainerStyle={{ borderColor: "#dadde1", borderWidth: 1 }}
                 placeholder="1 Rep max"
                 maxLength={3}
                 keyboardType="numeric"

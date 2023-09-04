@@ -77,7 +77,8 @@ const LiftingOptions = ({ userData, setUserData }) => {
               styles.aqua,
             ]}
           >
-            Choose your exercises
+            Choose {userData.availability === 0 && '7'} 
+            {userData.availability === 1 && '8'} exercises. 
           </Text>
         </View>
       </View>

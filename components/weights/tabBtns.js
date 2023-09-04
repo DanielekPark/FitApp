@@ -42,15 +42,15 @@ const TabBtns = ({ userData, index, setIndex }) => {
         variant="primary"
       >
         <Tab.Item
-          title="Day 1 Back & Biceps"
+          title="Day 1"
           titleStyle={{ fontSize: 20 }}
         />
         <Tab.Item
-          title="Day 2 Legs & Core"
+          title="Day 2"
           titleStyle={{ fontSize: 20 }}
         />
         <Tab.Item
-          title="Day 3 Chest & Triceps"
+          title="Day 3"
           titleStyle={{ fontSize: 20 }}
         />
       </Tab>

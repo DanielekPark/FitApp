@@ -168,7 +168,6 @@ const Questionaire = ({ userData, setUserData }) => {
                 />
               </View>
             </View>
-
           </View>
           
           {//FOR RETURNING & INTERMEDIATE USERS
@@ -203,7 +202,6 @@ const Questionaire = ({ userData, setUserData }) => {
                 />
               </View>
             </View>
-
           </View>}
         </View>
       </View>

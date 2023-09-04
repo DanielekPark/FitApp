@@ -1,6 +1,7 @@
 import React from "react";
 import { Overlay, Icon } from "@rneui/themed";
 import { View, Text, Image } from "react-native";
+import styles from "../../styles/style.module";
 
 const DemoModal = ({ showDemo, setShowDemo, userData }) => {
   //closes modal window
@@ -45,8 +46,8 @@ const DemoModal = ({ showDemo, setShowDemo, userData }) => {
             />
           </View> }
         
-        <Text style={{ marginBottom: 10 }}>{selected?.name}</Text>
-        <Text style={{ marginBottom: 10 }}>{selected?.muscleGroup}</Text>
+        <Text style={[{ marginBottom: 10 }, styles.aqua]}>{selected?.name}</Text>
+        <Text style={[{ marginBottom: 10 }, styles.aqua]}>{selected?.muscleGroup}</Text>
       </Overlay>
     </View>
   );

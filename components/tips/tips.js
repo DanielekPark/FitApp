@@ -21,9 +21,6 @@ const Tips = () => {
     <View>
       <View>
         <Text style={styles.aqua}>
-          Tips
-        </Text>
-        <Text style={styles.aqua}>
           Glossary terms
         </Text>
         <View>

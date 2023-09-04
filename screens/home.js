@@ -137,7 +137,7 @@ function HomeScreen() {
           >
             <ListItem>
               <View >
-                <Text style={styles.aqua}>App is meant is meant provide a sample of a workout, there can be many different strategies on how to workout based on your need. </Text>
+                <Text style={styles.aqua}>There are many different strategies for weightlifting. There is not a one size fits all program.</Text>
               </View>
             </ListItem>
           </ListItem.Accordion>

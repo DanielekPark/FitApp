@@ -38,7 +38,7 @@ const exercises = [
     availability: 0,
     goal: "",
     startImg: require("../../assets/images/hamstring-curl-start.png"),
-    endImg: require("../../assets/images/hamstring-curl-start.png"),
+    endImg: require("../../assets/images/knee-extension-end.png"),
     movement: "Single",
     showImage: false
   },
