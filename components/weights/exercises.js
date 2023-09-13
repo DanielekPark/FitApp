@@ -78,8 +78,8 @@ const exercises = [
     reps: 0,
     availability: 0,
     goal: "",
-    startImg: require("../../assets/squat-start.png"),
-    endImg: require("../../assets/calf-raise-end.png"),
+    startImg: require("../../assets/images/squat-start.png"),
+    endImg: require("../../assets/images/calf-raise-end.png"),
     movement: "Single",
     showImage: false
   },
@@ -186,8 +186,8 @@ const exercises = [
     reps: 0,
     availability: 0,
     goal: "",
-    startImg: require("../../assets/crunches-start.png"),
-    endImg: require("../../assets/leg-lift-end.png"),
+    startImg: require("../../assets/images/crunches-start.png"),
+    endImg: require("../../assets/images/leg-lift-end.png"),
     movement: "Single",
     showImage: false
   },
