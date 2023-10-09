@@ -78,24 +78,24 @@ const exercises = [
     reps: 0,
     availability: 0,
     goal: "",
-    startImg: require("../../assets/images/squat-start.png"),
-    endImg: require("../../assets/images/calf-raise-end.png"),
+    startImg: require("../../assets/images/stand-calf-start.png"),
+    endImg: require("../../assets/images/stand-calf-end.png"),
     movement: "Single",
     showImage: false
   },
-  {
-    name: "Seated calf raise",
-    muscleGroup: "Calf",
-    chosen: false,
-    weight: 0,
-    reps: 0,
-    availability: 0,
-    goal: "",
-    startImg: require("../../assets/favicon.png"),
-    endImg: require("../../assets/favicon.png"),
-    movement: "Single",
-    showImage: false
-  },
+  // {
+  //   name: "Seated calf raise",
+  //   muscleGroup: "Calf",
+  //   chosen: false,
+  //   weight: 0,
+  //   reps: 0,
+  //   availability: 0,
+  //   goal: "",
+  //   startImg: require("../../assets/favicon.png"),
+  //   endImg: require("../../assets/favicon.png"),
+  //   movement: "Single",
+  //   showImage: false
+  // },
   // CHEST
   {
     name: "Bench press",
@@ -172,8 +172,8 @@ const exercises = [
     reps: 0,
     availability: 0,
     goal: "",
-    startImg: require("../../assets/images/shoulder-shrug-start.png"),
-    endImg: require("../../assets/images/shoulder-shrug-end.png"),
+    startImg: require("../../assets/images/shrug-start.png"),
+    endImg: require("../../assets/images/shrug-end.png"),
     movement: "Single",
     showImage: false
   },
@@ -186,7 +186,7 @@ const exercises = [
     reps: 0,
     availability: 0,
     goal: "",
-    startImg: require("../../assets/images/crunches-start.png"),
+    startImg: require("../../assets/images/leg-lift-start.png"),
     endImg: require("../../assets/images/leg-lift-end.png"),
     movement: "Single",
     showImage: false
@@ -213,7 +213,7 @@ const exercises = [
     availability: 0,
     goal: "",
     startImg: require("../../assets/images/twist-start.png"),
-    endImg: require("../../assets/images/twist-end.png"),
+    endImg: require("../../assets/images/twists-end.png"),
     movement: "Single",
     showImage: false
   },
@@ -290,9 +290,6 @@ const exercises = [
 Images needed for:
 Hamstring curl end
 Seated calf raise, (start & end)
-Lateral raise, (start & end)
-Leg lifts
-Tricep overhead extension end
 */
 
 export default exercises;
