@@ -1,6 +1,6 @@
 # Fit App
 
-A fitness app created using React Native and Expo. Enables users to create a workout based on their preferences. Expo enables users to develop Android and iOS apps using React Native. 
+A fitness app created using React Native and Expo. Enables users to create a workout based on their preferences. Expo enables users to develop Android and iOS apps using React Native and is needed to run the app.
 
 ## Technologies
 * Javascript
